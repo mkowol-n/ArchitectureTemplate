@@ -3,12 +3,11 @@ plugins {
 }
 
 android {
-    buildFeatures {
-        compose = true
-    }
+//    buildFeatures {
+//        compose = true
+//    }
 }
 
 dependencies {
     implementation platform(libs.androidx.compose.bom)
-
 }

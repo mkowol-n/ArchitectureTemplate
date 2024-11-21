@@ -1,0 +1,11 @@
+plugins {
+    id 'com.android.library'
+    id 'base-android-conventions'
+    id 'base-compose-conventions'
+}
+
+dependencies {
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.material3)
+}
