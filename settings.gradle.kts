@@ -23,4 +23,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "ArchitectureTemplate"
 include(":app")
- 
+include(":features")
+include(":features:login")
+include(":features:login:impl")
