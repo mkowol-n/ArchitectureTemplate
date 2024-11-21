@@ -5,5 +5,5 @@ plugins {
 
 dependencies {
     implementation(libs.kotlin.serialization)
-    implementation(project(":core:feature-api"))
+    implementation(project(":core::navigation:api"))
 }

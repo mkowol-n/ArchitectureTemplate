@@ -1,7 +1,7 @@
 package pl.nepapp.login
 
 import kotlinx.serialization.Serializable
-import pl.nepapp.feature_api.Screen
+import pl.nepapp.navigation.api.Screen
 
 @Serializable
-class MyClass: Screen
+object LoginScreen: Screen
