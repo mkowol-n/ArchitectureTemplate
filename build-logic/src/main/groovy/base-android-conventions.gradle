@@ -1,0 +1,33 @@
+plugins {
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    compileSdkVersion 35
+
+    defaultConfig {
+        minSdkVersion 26
+    }
+
+    buildTypes {
+        release {
+            // Release build type configurations
+        }
+        initial {
+            initWith(buildTypes.release)
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
+    }
+
+    kotlinOptions {
+        jvmTarget = '21'
+    }
+}
+
+dependencies {
+    implementation libs.timber
+}

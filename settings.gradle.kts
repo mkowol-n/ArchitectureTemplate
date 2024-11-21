@@ -1,5 +1,4 @@
 pluginManagement {
-    includeBuild("build-logic")
     repositories {
         google {
             content {
@@ -22,6 +21,9 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "ArchitectureTemplate"
+
+includeBuild("build-logic")
+
 include(":app")
 include(":features:login")
 include(":features:login:impl")
