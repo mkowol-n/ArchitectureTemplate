@@ -1,7 +1,7 @@
-package pl.nepapp.login
+package pl.nepapp.features.dashboard
 
 import kotlinx.serialization.Serializable
 import pl.nepapp.navigation.api.Screen
 
 @Serializable
-object LoginScreen: Screen
+object DashboardScreen: Screen
