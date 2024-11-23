@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import org.koin.compose.koinInject
 import pl.nepapp.features.login.LoginDirection
 import pl.nepapp.features.todo_details.TodoDetailsScreenRegistry
+import pl.nepapp.features.todolist.TodoListDirection
 import pl.nepapp.features.todolist.TodoListScreenRegistry
 import pl.nepapp.navigation.graphs.base.BaseNavHost
 import pl.nepapp.navigation.graphs.base.registerWithSlideAnimation
@@ -14,7 +15,7 @@ fun TodoGraph(
     todoDetailsScreenRegistry: TodoDetailsScreenRegistry = koinInject(),
 ) {
     BaseNavHost(
-        startDestination = LoginDirection
+        startDestination = TodoListDirection
     ) {
         todoListScreenRegistry.registerWithSlideAnimation(navGraphBuilder = this@BaseNavHost)
         todoDetailsScreenRegistry.registerWithSlideAnimation(navGraphBuilder = this@BaseNavHost)

@@ -1,5 +1,9 @@
 package pl.nepapp.features.dashboard.impl
 
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -23,6 +27,8 @@ import pl.nepapp.coreui.bottomNavigation.NepappBottomNavigation
 import pl.nepapp.coreui.bottomNavigation.NepappBottomNavigationModel
 import pl.nepapp.features.dashboard.DashboardScreenRegistry
 import pl.nepapp.features.dashboard.impl.models.BottomNavOptions
+import pl.nepapp.navigation.graphs.maingraph.AccountGraph
+import pl.nepapp.navigation.graphs.maingraph.TodoGraph
 import pl.nepapp.navigation.impl.LocalNavigator
 
 @Factory
@@ -61,15 +67,33 @@ internal fun DashboardContent() {
             )
         }
     ) {
-        Box(modifier = Modifier
-            .padding(it)
-            .fillMaxSize()) {
-            when(bottomNavSelectedOption) {
-                BottomNavOptions.Todo -> {
-
+        Box(
+            modifier = Modifier
+                .padding(it)
+                .fillMaxSize()
+        ) {
+            AnimatedContent(
+                bottomNavSelectedOption, label = "", transitionSpec = {
+                    fadeIn().togetherWith(fadeOut())
                 }
-                BottomNavOptions.Account -> {
+            ) { selected ->
+                when (selected) {
+                    BottomNavOptions.Todo -> {
+                        TodoGraph()
+                    }
 
+                    BottomNavOptions.Account -> {
+                        AccountGraph()
+                    }
+                }
+            }
+            when (bottomNavSelectedOption) {
+                BottomNavOptions.Todo -> {
+                    TodoGraph()
+                }
+
+                BottomNavOptions.Account -> {
+                    AccountGraph()
                 }
             }
         }

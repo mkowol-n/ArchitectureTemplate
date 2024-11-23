@@ -3,13 +3,17 @@ package pl.nepapp.features.todo_details.impl
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import org.koin.core.annotation.Factory
+import pl.nepapp.features.login.LoginDirection
+import pl.nepapp.features.todo_details.TodoDetailsDirection
 import pl.nepapp.features.todo_details.TodoDetailsScreenRegistry
 import pl.nepapp.navigation.impl.LocalNavigator
 
@@ -24,11 +28,15 @@ class TodoDetailsScreen: TodoDetailsScreenRegistry() {
 @Composable
 internal fun TodoDetailsContent() {
     val navigator = LocalNavigator.current
-    Box(Modifier.background(Color.Green).fillMaxSize(), contentAlignment = Alignment.Center) {
-        Button(onClick = {
-
-        }) {
-            Text("klikaj mnie")
+    Scaffold {
+        Box(modifier = Modifier.padding(it)) {
+            Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                Button(onClick = {
+                    navigator!!.parent.push(LoginDirection)
+                }) {
+                    Text("klikaj mnie")
+                }
+            }
         }
     }
 }
