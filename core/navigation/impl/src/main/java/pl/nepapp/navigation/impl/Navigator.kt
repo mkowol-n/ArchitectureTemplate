@@ -8,12 +8,13 @@ import androidx.compose.runtime.remember
 import androidx.navigation.NavController
 import pl.nepapp.navigation.api.Direction
 
-class Navigator(val parent: Navigator?, private val navigator: NavController) {
+class Navigator(private val _parent: Navigator?, private val navigator: NavController) {
     private val results = mutableStateMapOf<String, Any?>()
+    val parent: Navigator get() = requireNotNull(_parent)
 
     fun replaceAll(directions: List<Direction>) {
         directions.forEachIndexed { index, direction ->
-            if(index == 0) {
+            if (index == 0) {
                 navigator.navigate(direction) {
                     popUpTo(navigator.graph.startDestinationId) { inclusive = true }
                 }
@@ -22,6 +23,7 @@ class Navigator(val parent: Navigator?, private val navigator: NavController) {
             }
         }
     }
+
     fun replaceAll(direction: Direction) {
         navigator.navigate(direction) {
             popUpTo(navigator.graph.startDestinationId) { inclusive = true }
@@ -30,7 +32,7 @@ class Navigator(val parent: Navigator?, private val navigator: NavController) {
 
     fun replace(directions: List<Direction>) {
         directions.forEachIndexed { index, direction ->
-            if(index == 0) {
+            if (index == 0) {
                 navigator.navigate(direction) {
                     popUpTo(navigator.graph.last().id)
                 }
