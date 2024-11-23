@@ -23,7 +23,6 @@ import pl.nepapp.coreui.bottomNavigation.NepappBottomNavigation
 import pl.nepapp.coreui.bottomNavigation.NepappBottomNavigationModel
 import pl.nepapp.features.dashboard.DashboardScreenRegistry
 import pl.nepapp.features.dashboard.impl.models.BottomNavOptions
-import pl.nepapp.features.login.LoginDirection
 import pl.nepapp.navigation.impl.LocalNavigator
 
 @Factory
@@ -73,17 +72,6 @@ internal fun DashboardContent() {
 
                 }
             }
-        }
-    }
-    Box(
-        Modifier
-            .background(Color.Blue)
-            .fillMaxSize(), contentAlignment = Alignment.Center
-    ) {
-        Button(onClick = {
-            navigator?.push(LoginDirection)
-        }) {
-            Text("klikaj mnie")
         }
     }
 }

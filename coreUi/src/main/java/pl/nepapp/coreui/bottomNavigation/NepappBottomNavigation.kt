@@ -20,7 +20,7 @@ fun <T> NepappBottomNavigation(
                 modifier = Modifier.weight(1f),
                 item = item,
                 onClick = onClick,
-                isSelected = selectedItem == item
+                isSelected = selectedItem == item.item
             )
         }
     }
