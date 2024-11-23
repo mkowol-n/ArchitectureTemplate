@@ -17,7 +17,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import kotlinx.collections.immutable.toImmutableList
 import org.koin.compose.koinInject
-import pl.nepapp.coreui.Displaytype
+import pl.nepapp.coreui.DisplayType
 import pl.nepapp.coreui.bottomNavigation.NepappBottomNavigation
 import pl.nepapp.coreui.bottomNavigation.NepappBottomNavigationModel
 import pl.nepapp.features.dashboard.impl.models.BottomNavOptions
@@ -31,7 +31,7 @@ fun DashboardContent(nepAppGraph: NepAppGraph = koinInject()) {
     val bottomNavOptions = remember {
         BottomNavOptions.entries.map {
             NepappBottomNavigationModel(
-                displaytype = Displaytype.Text(it.text),
+                displaytype = DisplayType.Text(it.text),
                 item = it,
             )
         }.toImmutableList()

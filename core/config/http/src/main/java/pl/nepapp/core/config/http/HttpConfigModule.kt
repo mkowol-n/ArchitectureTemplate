@@ -1,7 +1,5 @@
 package pl.nepapp.core.config.http
 
-import com.squareup.moshi.Moshi
-import okhttp3.OkHttp
 import okhttp3.OkHttpClient
 import org.koin.core.annotation.ComponentScan
 import org.koin.core.annotation.Module

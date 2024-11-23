@@ -2,10 +2,6 @@ package pl.nepapp.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
-import androidx.compose.runtime.derivedStateOf
-import androidx.compose.runtime.mutableStateMapOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.snapshots.SnapshotStateMap
 
 interface Navigator {
     val parent: Navigator

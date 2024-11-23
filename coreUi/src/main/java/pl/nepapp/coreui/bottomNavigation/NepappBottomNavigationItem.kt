@@ -11,7 +11,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import pl.nepapp.coreui.Displaytype
+import pl.nepapp.coreui.DisplayType
 
 @Composable
 internal fun <T> NepappBottomNavigationItem(
@@ -30,7 +30,7 @@ internal fun <T> NepappBottomNavigationItem(
             onClick(item.item)
         }
         .fillMaxSize(), contentAlignment = Alignment.Center) {
-        if (item.displaytype is Displaytype.Text) {
+        if (item.displaytype is DisplayType.Text) {
             Text(item.displaytype.text)
         }
     }

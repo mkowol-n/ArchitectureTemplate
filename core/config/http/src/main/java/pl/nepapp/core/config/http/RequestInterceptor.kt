@@ -2,7 +2,6 @@ package pl.nepapp.core.config.http
 
 import okhttp3.Interceptor
 import okhttp3.Response
-import org.koin.core.annotation.Factory
 import org.koin.core.annotation.Single
 
 interface RequestInterceptor: Interceptor
