@@ -18,9 +18,4 @@ class TodoDetailsViewModel(
         val directionModel: TodoDetailsDirection
     )
 
-    init {
-        intent {
-            Log.d("pizda32", state.directionModel.toString())
-        }
-    }
 }
