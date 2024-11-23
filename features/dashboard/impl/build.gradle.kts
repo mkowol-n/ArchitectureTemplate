@@ -13,4 +13,5 @@ dependencies {
     implementation(project(":features:todo-details"))
     implementation(project(":features:dashboard"))
     implementation(project(":core:navigation:graphs:main-graph"))
+    implementation(project(":core:graphapi"))
 }

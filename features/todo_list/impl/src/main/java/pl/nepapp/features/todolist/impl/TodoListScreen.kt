@@ -23,7 +23,7 @@ class TodoListScreen: TodoListScreenRegistry() {
 }
 
 @Composable
-internal fun TodoListContent() {
+fun TodoListContent() {
     val navigator = LocalNavigator.current
     Box(Modifier.background(Color.Green).fillMaxSize(), contentAlignment = Alignment.Center) {
         Button(onClick = {

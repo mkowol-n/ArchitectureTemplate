@@ -22,7 +22,7 @@ class AccountScreen: AccountScreenRegistry() {
 }
 
 @Composable
-internal fun AccountContent() {
+fun AccountContent() {
     val navigator = LocalNavigator.current
     Box(Modifier.background(Color.Black).fillMaxSize(), contentAlignment = Alignment.Center) {
         Button(onClick = {

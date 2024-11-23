@@ -6,4 +6,10 @@ import androidx.compose.ui.Modifier
 interface NepAppGraph {
     @Composable
     fun Route()
+
+    @Composable
+    fun TodoRoute()
+
+    @Composable
+    fun AccountRoute()
 }

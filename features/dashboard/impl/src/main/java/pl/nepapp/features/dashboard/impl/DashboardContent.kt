@@ -4,43 +4,29 @@ import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import kotlinx.collections.immutable.toImmutableList
-import org.koin.core.annotation.Factory
+import org.koin.compose.koinInject
 import pl.nepapp.coreui.Displaytype
 import pl.nepapp.coreui.bottomNavigation.NepappBottomNavigation
 import pl.nepapp.coreui.bottomNavigation.NepappBottomNavigationModel
-import pl.nepapp.features.dashboard.DashboardScreenRegistry
 import pl.nepapp.features.dashboard.impl.models.BottomNavOptions
+import pl.nepapp.graphapi.NepAppGraph
 import pl.nepapp.navigation.graphs.maingraph.AccountGraph
-import pl.nepapp.navigation.graphs.maingraph.TodoGraph
 import pl.nepapp.navigation.impl.LocalNavigator
 
-@Factory
-class DashboardScreen : DashboardScreenRegistry() {
-    @Composable
-    override fun Content() {
-        DashboardContent()
-    }
-}
-
 @Composable
-fun DashboardContent() {
+fun DashboardContent(nepAppGraph: NepAppGraph = koinInject()) {
     val navigator = LocalNavigator.current
 
     val bottomNavOptions = remember {
@@ -77,23 +63,14 @@ fun DashboardContent() {
                     fadeIn().togetherWith(fadeOut())
                 }
             ) { selected ->
-//                when (selected) {
-//                    BottomNavOptions.Todo -> {
-//                        TodoGraph()
-//                    }
-//
-//                    BottomNavOptions.Account -> {
-//                        AccountGraph()
-//                    }
-//                }
-            }
-            when (bottomNavSelectedOption) {
-                BottomNavOptions.Todo -> {
-                    TodoGraph()
-                }
+                when (selected) {
+                    BottomNavOptions.Todo -> {
+                        nepAppGraph.TodoRoute()
+                    }
 
-                BottomNavOptions.Account -> {
-                    AccountGraph()
+                    BottomNavOptions.Account -> {
+                        nepAppGraph.AccountRoute()
+                    }
                 }
             }
         }
