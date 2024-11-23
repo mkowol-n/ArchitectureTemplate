@@ -2,6 +2,7 @@ package pl.nepapp.core.navigation.impl
 
 import androidx.compose.runtime.Composable
 import org.koin.core.annotation.Single
+import pl.nepapp.core.navigation.NepAppGraph
 import pl.nepapp.features.account.AccountDirection
 import pl.nepapp.features.account.impl.AccountScreen
 import pl.nepapp.features.dashboard.DashboardDirection
@@ -12,7 +13,6 @@ import pl.nepapp.features.tododetails.TodoDetailsDirection
 import pl.nepapp.features.tododetails.impl.TodoDetailsScreen
 import pl.nepapp.features.todolist.TodoListDirection
 import pl.nepapp.features.todolist.impl.TodoListContent
-import pl.nepapp.core.navigation.NepAppGraph
 
 @Single
 class NepAppGraphImpl: NepAppGraph {

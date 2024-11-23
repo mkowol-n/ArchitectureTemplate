@@ -9,8 +9,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import pl.nepapp.features.tododetails.TodoDetailsDirection
 import pl.nepapp.core.navigation.LocalNavigator
+import pl.nepapp.features.tododetails.TodoDetailsDirection
 
 
 @Composable

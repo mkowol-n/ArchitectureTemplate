@@ -10,8 +10,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import org.koin.androidx.compose.koinViewModel
-import pl.nepapp.features.login.LoginDirection
 import pl.nepapp.core.navigation.LocalNavigator
+import pl.nepapp.features.login.LoginDirection
 
 
 @Composable

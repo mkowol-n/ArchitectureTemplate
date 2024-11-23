@@ -17,12 +17,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import kotlinx.collections.immutable.toImmutableList
 import org.koin.compose.koinInject
+import pl.nepapp.core.navigation.LocalNavigator
+import pl.nepapp.core.navigation.NepAppGraph
 import pl.nepapp.coreui.DisplayType
 import pl.nepapp.coreui.bottomNavigation.NepappBottomNavigation
 import pl.nepapp.coreui.bottomNavigation.NepappBottomNavigationModel
 import pl.nepapp.features.dashboard.impl.models.BottomNavOptions
-import pl.nepapp.core.navigation.LocalNavigator
-import pl.nepapp.core.navigation.NepAppGraph
 
 @Composable
 fun DashboardContent(nepAppGraph: NepAppGraph = koinInject()) {
