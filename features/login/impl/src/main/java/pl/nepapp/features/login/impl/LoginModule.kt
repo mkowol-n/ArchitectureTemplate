@@ -1,0 +1,9 @@
+package pl.nepapp.features.login.impl
+
+import org.koin.core.annotation.ComponentScan
+import org.koin.core.annotation.Module
+
+@Module
+@ComponentScan("pl.nepapp.features.login.impl")
+class LoginModule {
+}

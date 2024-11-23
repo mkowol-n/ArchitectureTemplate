@@ -14,6 +14,10 @@ androidCacheFix = "2.7.1"
 timber = "5.0.1"
 serialization = "1.7.3"
 navigation-compose = "2.8.4"
+orbit = "9.0.0"
+
+
+ksp = "2.0.21-1.0.28"
 
 koinBom = "4.0.0"
 
@@ -46,6 +50,11 @@ koin-workmanager = { group = "io.insert-koin", name = "koin-androidx-workmanager
 koin-compose = { group = "io.insert-koin", name = "koin-androidx-compose" }
 test-koin-junit = { group = "io.insert-koin", name = "koin-test-junit4" }
 
+orbit = { module = "org.orbit-mvi:orbit-viewmodel", version.ref = "orbit" }
+orbit-compose = { module = "org.orbit-mvi:orbit-compose", version.ref = "orbit" }
+orbit-test = { module = "org.orbit-mvi:orbit-test", version.ref = "orbit" }
+
+
 koin-annotations = { group = "io.insert-koin", name = "koin-annotations", version.ref = "koinAnnotations" }
 koin-compiler = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koinAnnotations" }
 
@@ -68,4 +77,6 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+
 

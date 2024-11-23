@@ -2,6 +2,7 @@ plugins {
     id 'com.android.library'
     id 'base-android-conventions'
     id 'base-compose-conventions'
+    id 'com.google.devtools.ksp'
 }
 
 dependencies {
@@ -10,4 +11,13 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(project(":core:navigation:impl"))
     implementation(project(":core:navigation:api"))
+    implementation(project(":core:state-management"))
+    implementation(libs.orbit)
+    implementation(libs.orbit.compose)
+
+    implementation(platform(libs.koin.bom))
+    implementation(libs.koin.compose)
+
+    ksp libs.koin.compiler
+    implementation(libs.koin.annotations)
 }

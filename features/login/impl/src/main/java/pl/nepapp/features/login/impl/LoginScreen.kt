@@ -9,16 +9,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import org.koin.androidx.compose.koinViewModel
+import org.koin.core.annotation.Factory
 import org.koin.core.module.dsl.factoryOf
 import org.koin.dsl.module
 import pl.nepapp.features.dashboard.DashboardDirection
 import pl.nepapp.features.login.LoginScreenRegistry
 import pl.nepapp.navigation.impl.LocalNavigator
 
-val loginModule = module {
-    factoryOf<LoginScreenRegistry>(::LoginScreen)
-}
-
+@Factory
 class LoginScreen: LoginScreenRegistry() {
     @Composable
     override fun Content() {
@@ -27,7 +26,7 @@ class LoginScreen: LoginScreenRegistry() {
 }
 
 @Composable
-internal fun LoginContent(modifier: Modifier = Modifier) {
+internal fun LoginContent(viewModel: LoginViewModel = koinViewModel()) {
     val navigator = LocalNavigator.current
     Box(Modifier.background(Color.Red).fillMaxSize(), contentAlignment = Alignment.Center) {
         Button(onClick = {
@@ -35,6 +34,5 @@ internal fun LoginContent(modifier: Modifier = Modifier) {
         }) {
             Text("klikaj mnie")
         }
-
     }
 }
