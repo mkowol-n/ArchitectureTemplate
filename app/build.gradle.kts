@@ -25,6 +25,11 @@ android {
             )
         }
     }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
 }
 
 dependencies {
@@ -42,4 +47,14 @@ dependencies {
     implementation(project(":features:login"))
     implementation(project(":features:dashboard"))
     implementation(project(":core:navigation:graphs:main-graph"))
+    implementation(project(":core:config:http"))
+    implementation(project(":core:config:shared"))
+    implementation(libs.timber)
+
+
+    implementation(platform(libs.koin.bom))
+    implementation(libs.koin.android)
+    implementation(libs.koin.compose)
+    implementation(libs.koin.core)
+    implementation(project(":data:authorization:impl"))
 }

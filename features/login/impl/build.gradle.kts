@@ -9,4 +9,5 @@ android {
 dependencies {
     implementation(project(":features:login"))
     implementation(project(":features:dashboard"))
+    implementation(project(":data:authorization"))
 }

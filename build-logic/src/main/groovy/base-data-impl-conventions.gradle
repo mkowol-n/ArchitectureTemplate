@@ -1,0 +1,9 @@
+plugins {
+    id 'base-kotlin-conventions'
+    id 'com.google.devtools.ksp'
+}
+
+dependencies {
+    implementation(platform(libs.koin.bom))
+    implementation(libs.koin.core)
+}

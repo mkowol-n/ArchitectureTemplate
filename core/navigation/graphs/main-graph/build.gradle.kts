@@ -14,4 +14,7 @@ dependencies {
     implementation(project(":core:navigation:graphs:base"))
     implementation(project(":core:navigation:api"))
     implementation(libs.navigation.compose)
+
+    implementation(platform(libs.koin.bom))
+    implementation(libs.koin.compose)
 }

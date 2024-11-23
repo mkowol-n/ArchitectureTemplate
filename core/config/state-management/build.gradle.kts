@@ -10,4 +10,8 @@ android {
 dependencies {
     implementation(libs.orbit)
     implementation(libs.orbit.compose)
+    implementation(libs.immutableList)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.compose.foundation)
+    implementation(libs.timber)
 }
