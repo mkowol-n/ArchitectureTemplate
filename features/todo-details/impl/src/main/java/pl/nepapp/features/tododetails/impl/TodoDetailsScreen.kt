@@ -15,7 +15,9 @@ import pl.nepapp.features.login.LoginDirection
 
 
 @Composable
-fun TodoDetailsScreen(viewModel: TodoDetailsViewModel = koinViewModel()) {
+fun TodoDetailsScreen(
+    viewModel: TodoDetailsViewModel = koinViewModel()
+) {
     val navigator = LocalNavigator.current
 
     Scaffold {

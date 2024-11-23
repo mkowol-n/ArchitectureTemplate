@@ -1,6 +1,7 @@
 package pl.nepapp.core.navigation.impl
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.toRoute
 import org.koin.core.annotation.Single
 import pl.nepapp.core.navigation.NepAppGraph
 import pl.nepapp.features.account.AccountDirection
