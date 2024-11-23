@@ -48,10 +48,10 @@ include(":core:navigation")
 include(":core:navigation:impl")
 
 include(":core:common")
+include(":core:common:impl")
 include(":core:state-management")
 
 include(":coreUi")
 
 include(":core:settings:local")
 include(":core:settings:local:impl")
-include(":core:common:impl")

@@ -4,7 +4,10 @@ import kotlinx.coroutines.runBlocking
 import okhttp3.Interceptor
 import okhttp3.Response
 import org.koin.core.annotation.Single
+import pl.nepapp.core.common.exceptions.NetworkException
 import pl.nepapp.core.settings.local.UserStorage
+import retrofit2.HttpException
+import java.io.IOException
 
 interface RequestInterceptor : Interceptor
 

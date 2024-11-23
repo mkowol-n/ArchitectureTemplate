@@ -11,6 +11,7 @@ dependencies {
     implementation(project(":core:state-management"))
     implementation(project(":core:navigation"))
     implementation(project(":coreUi"))
+    implementation(project(":core:common"))
     implementation(libs.orbit)
     implementation(libs.orbit.compose)
 
