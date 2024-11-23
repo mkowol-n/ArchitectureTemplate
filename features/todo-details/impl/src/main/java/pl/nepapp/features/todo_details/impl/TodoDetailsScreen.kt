@@ -22,7 +22,7 @@ fun TodoDetailsScreen(viewModel: TodoDetailsViewModel = koinViewModel()) {
         Box(modifier = Modifier.padding(it)) {
             Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                 Button(onClick = {
-                    navigator!!.push(LoginDirection)
+                    navigator?.parent!!.push(LoginDirection)
                 }) {
                     Text("klikaj mnie")
                     Text("klikaj mnie")
