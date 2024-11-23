@@ -1,4 +1,4 @@
-package pl.nepapp.core.config.http
+package pl.nepapp.core.config.http.impl
 
 import kotlinx.coroutines.runBlocking
 import okhttp3.Interceptor

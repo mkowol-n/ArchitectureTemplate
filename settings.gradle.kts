@@ -55,3 +55,4 @@ include(":coreUi")
 
 include(":core:settings:local")
 include(":core:settings:local:impl")
+include(":core:config:http:impl")

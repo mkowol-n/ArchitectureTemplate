@@ -5,7 +5,7 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.GlobalContext.startKoin
 import org.koin.ksp.generated.pl_nepapp_core_common_impl_CommonModule
-import org.koin.ksp.generated.pl_nepapp_core_config_http_HttpConfigModule
+import org.koin.ksp.generated.pl_nepapp_core_config_http_impl_HttpConfigModule
 import org.koin.ksp.generated.pl_nepapp_core_navigation_impl_NavigationModule
 import org.koin.ksp.generated.pl_nepapp_core_settings_local_impl_LocalSettingsModule
 import org.koin.ksp.generated.pl_nepapp_features_account_impl_AccountModule
@@ -26,7 +26,7 @@ class MainApplication: Application() {
             androidContext(this@MainApplication)
             modules(
                 pl_nepapp_features_login_impl_LoginModule,
-                pl_nepapp_core_config_http_HttpConfigModule,
+                pl_nepapp_core_config_http_impl_HttpConfigModule,
                 authorizationDataModule,
                 sharedConfigModule,
                 pl_nepapp_features_account_impl_AccountModule,

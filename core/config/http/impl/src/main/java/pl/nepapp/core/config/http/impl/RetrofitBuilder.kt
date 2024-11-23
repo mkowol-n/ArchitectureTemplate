@@ -1,4 +1,4 @@
-package pl.nepapp.core.config.http
+package pl.nepapp.core.config.http.impl
 
 import com.squareup.moshi.Moshi
 import okhttp3.OkHttpClient

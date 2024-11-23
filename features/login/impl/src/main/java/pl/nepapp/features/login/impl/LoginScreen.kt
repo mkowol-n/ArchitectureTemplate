@@ -19,7 +19,7 @@ fun LoginScreen(viewModel: LoginViewModel = koinViewModel()) {
     val navigator = LocalNavigator.current
     Box(Modifier.background(Color.Red).fillMaxSize(), contentAlignment = Alignment.Center) {
         Button(onClick = {
-           // viewModel.test()
+            viewModel.test()
             navigator?.push(DashboardDirection)
         }) {
             Text("klikaj mnie")
