@@ -5,6 +5,6 @@ import pl.nepapp.navigation.api.Direction
 import pl.nepapp.navigation.api.ScreenRegistry
 
 @Serializable
-object TodoDetailsDirection: Direction
+data class TodoDetailsDirection(val id: String): Direction
 
 abstract class TodoDetailsScreenRegistry: ScreenRegistry<TodoDetailsDirection>()

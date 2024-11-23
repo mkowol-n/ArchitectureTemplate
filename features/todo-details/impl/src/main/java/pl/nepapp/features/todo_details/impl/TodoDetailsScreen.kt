@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import org.koin.androidx.compose.koinViewModel
 import org.koin.core.annotation.Factory
 import pl.nepapp.features.login.LoginDirection
 import pl.nepapp.features.todo_details.TodoDetailsDirection
@@ -26,7 +27,7 @@ class TodoDetailsScreen: TodoDetailsScreenRegistry() {
 }
 
 @Composable
-internal fun TodoDetailsContent() {
+internal fun TodoDetailsContent(viewModel: TodoDetailsViewModel = koinViewModel()) {
     val navigator = LocalNavigator.current
     Scaffold {
         Box(modifier = Modifier.padding(it)) {
