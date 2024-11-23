@@ -11,6 +11,9 @@ android {
 dependencies {
     implementation(project(":features:login"))
     implementation(project(":features:dashboard"))
+    implementation(project(":features:todo_list"))
+    implementation(project(":features:account"))
+    implementation(project(":features:todo-details"))
     implementation(project(":core:navigation:graphs:base"))
     implementation(project(":core:navigation:api"))
     implementation(libs.navigation.compose)
