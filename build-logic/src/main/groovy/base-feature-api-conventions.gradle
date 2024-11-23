@@ -1,5 +1,6 @@
 plugins {
-    id 'base-kotlin-conventions'
+    id 'com.android.library'
+    id 'base-android-conventions'
     id 'org.jetbrains.kotlin.plugin.serialization'
 }
 

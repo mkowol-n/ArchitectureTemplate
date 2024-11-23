@@ -38,5 +38,8 @@ dependencies {
 //    implementation(libs.androidx.ui.tooling.preview)
 //    implementation(libs.androidx.material3)
     implementation(project(":features:login:impl"))
-    implementation(project(":core:navigation:graphs"))
+    implementation(project(":features:dashboard:impl"))
+    implementation(project(":features:login"))
+    implementation(project(":features:dashboard"))
+    implementation(project(":core:navigation:graphs:main-graph"))
 }

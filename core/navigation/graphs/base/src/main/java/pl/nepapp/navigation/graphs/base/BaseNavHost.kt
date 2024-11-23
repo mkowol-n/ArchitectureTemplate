@@ -1,19 +1,17 @@
-package pl.nepapp.navigation.graphs
+package pl.nepapp.navigation.graphs.base
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
-import pl.nepapp.navigation.api.Screen
+import pl.nepapp.navigation.api.Direction
 import pl.nepapp.navigation.impl.LocalNavigator
 import pl.nepapp.navigation.impl.Navigator
-import pl.nepapp.navigation.impl.ScreenRegister
-import pl.nepapp.navigation.impl.composableScreen
 
 @Composable
-internal fun BaseNavHost(
-    startDestination: Screen,
+fun BaseNavHost(
+    startDestination: Direction,
     builder: NavGraphBuilder.() -> Unit
 ) {
     val navController = rememberNavController()
@@ -27,11 +25,5 @@ internal fun BaseNavHost(
             navController = navController,
             builder = builder
         )
-    }
-}
-
-inline fun <reified T: Screen> ScreenRegister<T>.register(navGraphBuilder: NavGraphBuilder) {
-    navGraphBuilder.composableScreen<T> {
-        Content()
     }
 }

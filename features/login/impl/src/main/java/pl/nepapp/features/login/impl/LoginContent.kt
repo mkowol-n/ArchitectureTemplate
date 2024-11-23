@@ -9,24 +9,29 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import pl.nepapp.features.dashboard.DashboardScreen
-import pl.nepapp.features.login.LoginScreen
+import org.koin.core.module.dsl.factoryOf
+import org.koin.dsl.module
+import pl.nepapp.features.dashboard.DashboardDirection
+import pl.nepapp.features.login.LoginScreenRegistry
 import pl.nepapp.navigation.impl.LocalNavigator
-import pl.nepapp.navigation.impl.ScreenRegister
 
-object LoginScreenActual: ScreenRegister<LoginScreen>() {
+val loginModule = module {
+    factoryOf<LoginScreenRegistry>(::LoginScreen)
+}
+
+class LoginScreen: LoginScreenRegistry() {
     @Composable
     override fun Content() {
-        Test2()
+        LoginContent()
     }
 }
 
 @Composable
-fun Test2(modifier: Modifier = Modifier) {
+internal fun LoginContent(modifier: Modifier = Modifier) {
     val navigator = LocalNavigator.current
     Box(Modifier.background(Color.Red).fillMaxSize(), contentAlignment = Alignment.Center) {
         Button(onClick = {
-            navigator?.push(DashboardScreen)
+            navigator?.push(DashboardDirection)
         }) {
             Text("klikaj mnie")
         }

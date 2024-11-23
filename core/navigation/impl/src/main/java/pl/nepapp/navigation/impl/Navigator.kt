@@ -6,13 +6,13 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.remember
 import androidx.navigation.NavController
-import pl.nepapp.navigation.api.Screen
+import pl.nepapp.navigation.api.Direction
 
 class Navigator(val parent: Navigator?, private val navigator: NavController) {
     private val results = mutableStateMapOf<String, Any?>()
 
-    fun replaceAll(screens: List<Screen>) {
-        screens.forEachIndexed { index, any ->
+    fun replaceAll(directions: List<Direction>) {
+        directions.forEachIndexed { index, any ->
             if(index == 0) {
                 navigator.navigate(any) {
                     popUpTo(navigator.graph.startDestinationId) { inclusive = true }
@@ -23,8 +23,8 @@ class Navigator(val parent: Navigator?, private val navigator: NavController) {
         }
     }
 
-    fun push(screen: Screen) {
-        navigator.navigate(screen.screenName)
+    fun push(direction: Direction) {
+        navigator.navigate(direction)
     }
 
     fun popWithResult(value: Pair<String, Any?>) {
