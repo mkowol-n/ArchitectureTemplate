@@ -1,4 +1,4 @@
-package pl.nepapp.features.login.impl
+package pl.nepapp.features.dashboard.impl
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -14,19 +14,21 @@ import pl.nepapp.features.login.LoginScreen
 import pl.nepapp.navigation.impl.LocalNavigator
 import pl.nepapp.navigation.impl.ScreenRegister
 
-object LoginScreenActual: ScreenRegister<LoginScreen>() {
+data object DashboardScreenActual: ScreenRegister<DashboardScreen>() {
     @Composable
     override fun Content() {
-        Test2()
+        DashboardScreenImpl()
     }
 }
 
+
+
 @Composable
-fun Test2(modifier: Modifier = Modifier) {
+fun DashboardScreenImpl(modifier: Modifier = Modifier) {
     val navigator = LocalNavigator.current
-    Box(Modifier.background(Color.Red).fillMaxSize(), contentAlignment = Alignment.Center) {
+    Box(Modifier.background(Color.Blue).fillMaxSize(), contentAlignment = Alignment.Center) {
         Button(onClick = {
-            navigator?.push(DashboardScreen)
+            navigator?.push(LoginScreen)
         }) {
             Text("klikaj mnie")
         }

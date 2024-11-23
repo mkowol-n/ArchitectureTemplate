@@ -61,6 +61,6 @@ inline fun <reified T : Screen> NavGraphBuilder.composableScreen(
         exitTransition = exitTransition,
         popExitTransition = popExitTransition,
         popEnterTransition = popEnterTransition,
-        content = content
+        content = content,
     )
 }

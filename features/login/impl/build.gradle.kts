@@ -8,4 +8,5 @@ android {
 
 dependencies {
     implementation(project(":features:login"))
+    implementation(project(":features:dashboard"))
 }

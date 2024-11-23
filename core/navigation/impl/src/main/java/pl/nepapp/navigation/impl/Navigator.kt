@@ -23,6 +23,10 @@ class Navigator(val parent: Navigator?, private val navigator: NavController) {
         }
     }
 
+    fun push(screen: Screen) {
+        navigator.navigate(screen.screenName)
+    }
+
     fun popWithResult(value: Pair<String, Any?>) {
         results[value.first] = value.second
         navigator.popBackStack()

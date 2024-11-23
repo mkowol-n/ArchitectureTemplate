@@ -10,7 +10,10 @@ android {
 
 dependencies {
     implementation(project(":features:login:impl"))
+    implementation(project(":features:login"))
     implementation(project(":features:dashboard:impl"))
+    implementation(project(":features:dashboard"))
     implementation(project(":core:navigation:impl"))
+    implementation(project(":core:navigation:api"))
     implementation(libs.navigation.compose)
 }
