@@ -9,20 +9,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import org.koin.core.annotation.Factory
-import pl.nepapp.features.account.AccountScreenRegistry
-import pl.nepapp.navigation.impl.LocalNavigator
-
-@Factory
-class AccountScreen: AccountScreenRegistry() {
-    @Composable
-    override fun Content() {
-        AccountContent()
-    }
-}
+import pl.nepapp.graphapi.LocalNavigator
 
 @Composable
-fun AccountContent() {
+fun AccountScreen() {
     val navigator = LocalNavigator.current
     Box(Modifier.background(Color.Black).fillMaxSize(), contentAlignment = Alignment.Center) {
         Button(onClick = {

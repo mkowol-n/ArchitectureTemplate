@@ -1,4 +1,4 @@
-package pl.nepapp.navigation.impl
+package pl.nepapp.graphapi.impl
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
@@ -6,13 +6,13 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.remember
 import androidx.navigation.NavController
-import pl.nepapp.navigation.api.Direction
+import pl.nepapp.graphapi.Navigator
 
-class Navigator(private val _parent: Navigator?, private val navigator: NavController) {
+class NavigatorImpl(private val _parent: Navigator?, private val navigator: NavController): Navigator {
     private val results = mutableStateMapOf<String, Any?>()
-    val parent: Navigator get() = requireNotNull(_parent)
+    override val parent: Navigator get() = requireNotNull(_parent)
 
-    fun replaceAll(directions: List<Direction>) {
+    override fun replaceAll(directions: List<pl.nepapp.graphapi.Direction>) {
         directions.forEachIndexed { index, direction ->
             if (index == 0) {
                 navigator.navigate(direction) {
@@ -24,13 +24,13 @@ class Navigator(private val _parent: Navigator?, private val navigator: NavContr
         }
     }
 
-    fun replaceAll(direction: Direction) {
+    override fun replaceAll(direction: pl.nepapp.graphapi.Direction) {
         navigator.navigate(direction) {
             popUpTo(navigator.graph.startDestinationId) { inclusive = true }
         }
     }
 
-    fun replace(directions: List<Direction>) {
+    override fun replace(directions: List<pl.nepapp.graphapi.Direction>) {
         directions.forEachIndexed { index, direction ->
             if (index == 0) {
                 navigator.navigate(direction) {
@@ -42,33 +42,33 @@ class Navigator(private val _parent: Navigator?, private val navigator: NavContr
         }
     }
 
-    fun replace(direction: Direction) {
+    override fun replace(direction: pl.nepapp.graphapi.Direction) {
         navigator.navigate(direction) {
             popUpTo(navigator.graph.last().id)
         }
     }
 
-    fun push(directions: List<Direction>) {
+    override fun push(directions: List<pl.nepapp.graphapi.Direction>) {
         directions.forEach {
             navigator.navigate(it)
         }
     }
 
-    fun push(direction: Direction) {
+    override fun push(direction: pl.nepapp.graphapi.Direction) {
         navigator.navigate(direction)
     }
 
-    fun pop() {
+    override fun pop() {
         navigator.popBackStack()
     }
 
-    fun popWithResult(value: Pair<String, Any?>) {
+    override fun popWithResult(value: Pair<String, Any?>) {
         results[value.first] = value.second
         navigator.popBackStack()
     }
 
     @Composable
-    fun <T> getResult(screenKey: String): State<T?> {
+    override fun <T> getResult(screenKey: String): State<T?> {
         @Suppress("UNCHECKED_CAST") val result = results[screenKey] as? T
         val resultState = remember(screenKey, result) {
             derivedStateOf {

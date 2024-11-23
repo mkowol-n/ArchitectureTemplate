@@ -43,7 +43,6 @@ dependencies {
 //    implementation(libs.androidx.material3)
     implementation(project(":features:login"))
     implementation(project(":features:dashboard"))
-    implementation(project(":core:navigation:graphs:main-graph"))
     implementation(project(":core:config:http"))
     implementation(project(":core:config:shared"))
 

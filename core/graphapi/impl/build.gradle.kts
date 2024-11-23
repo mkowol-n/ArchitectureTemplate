@@ -30,6 +30,4 @@ dependencies {
     ksp (libs.koin.compiler)
     implementation(libs.koin.annotations)
     implementation(libs.navigation.compose)
-    implementation(project(":core:navigation:impl"))
-    implementation(project(":core:navigation:api"))
 }

@@ -11,16 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import org.koin.core.annotation.Factory
 import pl.nepapp.features.todo_details.TodoDetailsDirection
-import pl.nepapp.features.todolist.TodoListScreenRegistry
-import pl.nepapp.navigation.impl.LocalNavigator
+import pl.nepapp.graphapi.LocalNavigator
 
-@Factory
-class TodoListScreen: TodoListScreenRegistry() {
-    @Composable
-    override fun Content() {
-        TodoListContent()
-    }
-}
 
 @Composable
 fun TodoListContent() {
@@ -29,6 +21,7 @@ fun TodoListContent() {
         Button(onClick = {
             navigator?.push(TodoDetailsDirection("jakis fajny id"))
         }) {
+            Text("klikaj mnie")
             Text("klikaj mnie")
         }
     }

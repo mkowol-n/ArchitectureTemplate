@@ -21,9 +21,8 @@ import pl.nepapp.coreui.Displaytype
 import pl.nepapp.coreui.bottomNavigation.NepappBottomNavigation
 import pl.nepapp.coreui.bottomNavigation.NepappBottomNavigationModel
 import pl.nepapp.features.dashboard.impl.models.BottomNavOptions
+import pl.nepapp.graphapi.LocalNavigator
 import pl.nepapp.graphapi.NepAppGraph
-import pl.nepapp.navigation.graphs.maingraph.AccountGraph
-import pl.nepapp.navigation.impl.LocalNavigator
 
 @Composable
 fun DashboardContent(nepAppGraph: NepAppGraph = koinInject()) {

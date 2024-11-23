@@ -5,9 +5,8 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
-import pl.nepapp.navigation.api.Direction
-import pl.nepapp.navigation.impl.LocalNavigator
-import pl.nepapp.navigation.impl.Navigator
+import pl.nepapp.graphapi.Direction
+import pl.nepapp.graphapi.LocalNavigator
 
 @Composable
 internal fun BaseNavHost(
@@ -18,7 +17,7 @@ internal fun BaseNavHost(
     val parentNavigator = LocalNavigator.current
 
     CompositionLocalProvider(
-        LocalNavigator provides Navigator(_parent = parentNavigator, navigator = navController)
+        LocalNavigator provides NavigatorImpl(_parent = parentNavigator, navigator = navController)
     ){
         NavHost(
             startDestination = startDestination,

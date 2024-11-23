@@ -9,7 +9,7 @@ import pl.nepapp.graphapi.impl.animations.EnterSlideInHorizontally
 import pl.nepapp.graphapi.impl.animations.ExitSlideOutHorizontally
 import pl.nepapp.graphapi.impl.animations.PopExitSlideInHorizontally
 import pl.nepapp.graphapi.impl.animations.PopExitSlideOutHorizontally
-import pl.nepapp.navigation.api.Direction
+import pl.nepapp.graphapi.Direction
 
 internal inline fun <reified T : Direction> NavGraphBuilder.registerWithSlideAnimation(
     noinline content: @Composable AnimatedContentScope.(NavBackStackEntry) -> Unit
