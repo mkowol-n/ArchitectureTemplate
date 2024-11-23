@@ -4,8 +4,10 @@ import android.app.Application
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.GlobalContext.startKoin
+import org.koin.ksp.generated.pl_nepapp_core_common_impl_CommonModule
 import org.koin.ksp.generated.pl_nepapp_core_config_http_HttpConfigModule
 import org.koin.ksp.generated.pl_nepapp_core_navigation_impl_NavigationModule
+import org.koin.ksp.generated.pl_nepapp_core_settings_local_impl_LocalSettingsModule
 import org.koin.ksp.generated.pl_nepapp_features_account_impl_AccountModule
 import org.koin.ksp.generated.pl_nepapp_features_dashboard_impl_DashboardModule
 import org.koin.ksp.generated.pl_nepapp_features_login_impl_LoginModule
@@ -31,7 +33,9 @@ class MainApplication: Application() {
                 pl_nepapp_features_tododetails_impl_TodoListModule,
                 pl_nepapp_features_todolist_impl_TodoListModule,
                 pl_nepapp_features_dashboard_impl_DashboardModule,
-                pl_nepapp_core_navigation_impl_NavigationModule
+                pl_nepapp_core_navigation_impl_NavigationModule,
+                pl_nepapp_core_settings_local_impl_LocalSettingsModule,
+                pl_nepapp_core_common_impl_CommonModule
             )
         }
 

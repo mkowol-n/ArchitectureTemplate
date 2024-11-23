@@ -19,4 +19,6 @@ dependencies {
 
     implementation(platform(libs.koin.bom))
     implementation(libs.koin.core)
+    implementation(project(":core:settings:local"))
+    implementation(project(":core:common"))
 }
