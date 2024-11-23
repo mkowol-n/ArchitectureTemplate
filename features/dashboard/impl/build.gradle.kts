@@ -12,5 +12,5 @@ dependencies {
     implementation(project(":features:account"))
     implementation(project(":features:todo-details"))
     implementation(project(":features:dashboard"))
-    implementation(project(":core:graphapi"))
+    implementation(project(":core:navigation"))
 }

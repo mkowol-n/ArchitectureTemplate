@@ -1,12 +1,12 @@
-package pl.nepapp.graphapi.impl
+package pl.nepapp.navigation.impl
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
-import pl.nepapp.graphapi.Direction
-import pl.nepapp.graphapi.LocalNavigator
+import pl.nepapp.navigation.Direction
+import pl.nepapp.navigation.LocalNavigator
 
 @Composable
 internal fun BaseNavHost(

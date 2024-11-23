@@ -56,8 +56,8 @@ dependencies {
     implementation(project(":features:todo-details:impl"))
     implementation(project(":features:todo_list:impl"))
     implementation(project(":features:account:impl"))
-    implementation(project(":core:graphapi"))
-    implementation(project(":core:graphapi:impl"))
+    implementation(project(":core:navigation"))
+    implementation(project(":core:navigation:impl"))
 
     implementation(libs.timber)
 

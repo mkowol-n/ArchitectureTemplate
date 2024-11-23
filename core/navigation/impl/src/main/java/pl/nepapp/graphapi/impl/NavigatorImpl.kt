@@ -1,4 +1,4 @@
-package pl.nepapp.graphapi.impl
+package pl.nepapp.navigation.impl
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
@@ -6,13 +6,13 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.remember
 import androidx.navigation.NavController
-import pl.nepapp.graphapi.Navigator
+import pl.nepapp.navigation.Navigator
 
 class NavigatorImpl(private val _parent: Navigator?, private val navigator: NavController): Navigator {
     private val results = mutableStateMapOf<String, Any?>()
     override val parent: Navigator get() = requireNotNull(_parent)
 
-    override fun replaceAll(directions: List<pl.nepapp.graphapi.Direction>) {
+    override fun replaceAll(directions: List<pl.nepapp.navigation.Direction>) {
         directions.forEachIndexed { index, direction ->
             if (index == 0) {
                 navigator.navigate(direction) {
@@ -24,13 +24,13 @@ class NavigatorImpl(private val _parent: Navigator?, private val navigator: NavC
         }
     }
 
-    override fun replaceAll(direction: pl.nepapp.graphapi.Direction) {
+    override fun replaceAll(direction: pl.nepapp.navigation.Direction) {
         navigator.navigate(direction) {
             popUpTo(navigator.graph.startDestinationId) { inclusive = true }
         }
     }
 
-    override fun replace(directions: List<pl.nepapp.graphapi.Direction>) {
+    override fun replace(directions: List<pl.nepapp.navigation.Direction>) {
         directions.forEachIndexed { index, direction ->
             if (index == 0) {
                 navigator.navigate(direction) {
@@ -42,19 +42,19 @@ class NavigatorImpl(private val _parent: Navigator?, private val navigator: NavC
         }
     }
 
-    override fun replace(direction: pl.nepapp.graphapi.Direction) {
+    override fun replace(direction: pl.nepapp.navigation.Direction) {
         navigator.navigate(direction) {
             popUpTo(navigator.graph.last().id)
         }
     }
 
-    override fun push(directions: List<pl.nepapp.graphapi.Direction>) {
+    override fun push(directions: List<pl.nepapp.navigation.Direction>) {
         directions.forEach {
             navigator.navigate(it)
         }
     }
 
-    override fun push(direction: pl.nepapp.graphapi.Direction) {
+    override fun push(direction: pl.nepapp.navigation.Direction) {
         navigator.navigate(direction)
     }
 

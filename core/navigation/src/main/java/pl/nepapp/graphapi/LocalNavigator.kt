@@ -1,4 +1,4 @@
-package pl.nepapp.graphapi
+package pl.nepapp.navigation
 
 import androidx.compose.runtime.staticCompositionLocalOf
 

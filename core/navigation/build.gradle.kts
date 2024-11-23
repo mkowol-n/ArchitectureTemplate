@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "pl.nepapp.graphapi"
+    namespace = "pl.nepapp.navigation"
 }
 
 dependencies {

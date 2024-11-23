@@ -11,11 +11,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import org.koin.androidx.compose.koinViewModel
 import pl.nepapp.features.login.LoginDirection
-import pl.nepapp.graphapi.LocalNavigator
+import pl.nepapp.navigation.LocalNavigator
 
 
 @Composable
-internal fun TodoDetailsScreen(viewModel: TodoDetailsViewModel = koinViewModel()) {
+fun TodoDetailsScreen(viewModel: TodoDetailsViewModel = koinViewModel()) {
     val navigator = LocalNavigator.current
 
     Scaffold {

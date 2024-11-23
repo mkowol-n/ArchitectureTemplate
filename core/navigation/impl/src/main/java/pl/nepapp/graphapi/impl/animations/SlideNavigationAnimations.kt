@@ -1,4 +1,4 @@
-package pl.nepapp.graphapi.impl.animations
+package pl.nepapp.navigation.impl.animations
 
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.VisibilityThreshold

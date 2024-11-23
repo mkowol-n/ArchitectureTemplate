@@ -1,4 +1,4 @@
-package pl.nepapp.graphapi
+package pl.nepapp.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
@@ -16,11 +16,11 @@ interface Navigator {
 
     fun replace(directions: List<Direction>)
 
-    fun replace(direction: pl.nepapp.graphapi.Direction)
+    fun replace(direction: pl.nepapp.navigation.Direction)
 
-    fun push(directions: List<pl.nepapp.graphapi.Direction>)
+    fun push(directions: List<pl.nepapp.navigation.Direction>)
 
-    fun push(direction: pl.nepapp.graphapi.Direction)
+    fun push(direction: pl.nepapp.navigation.Direction)
 
     fun pop()
 

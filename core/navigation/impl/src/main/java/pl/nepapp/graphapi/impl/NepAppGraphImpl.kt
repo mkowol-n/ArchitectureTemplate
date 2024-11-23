@@ -1,4 +1,4 @@
-package pl.nepapp.graphapi.impl
+package pl.nepapp.navigation.impl
 
 import androidx.compose.runtime.Composable
 import org.koin.core.annotation.Single
@@ -9,9 +9,10 @@ import pl.nepapp.features.dashboard.impl.DashboardContent
 import pl.nepapp.features.login.LoginDirection
 import pl.nepapp.features.login.impl.LoginScreen
 import pl.nepapp.features.todo_details.TodoDetailsDirection
+import pl.nepapp.features.todo_details.impl.TodoDetailsScreen
 import pl.nepapp.features.todolist.TodoListDirection
 import pl.nepapp.features.todolist.impl.TodoListContent
-import pl.nepapp.graphapi.NepAppGraph
+import pl.nepapp.navigation.NepAppGraph
 
 @Single
 class NepAppGraphImpl: NepAppGraph {
@@ -39,7 +40,7 @@ class NepAppGraphImpl: NepAppGraph {
                 TodoListContent()
             }
             registerWithSlideAnimation<TodoDetailsDirection> {
-                TodoListContent()
+                TodoDetailsScreen()
             }
         }
     }

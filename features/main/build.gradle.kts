@@ -8,5 +8,5 @@ android {
 
 dependencies {
     implementation(project(":features:login"))
-    implementation(project(":core:graphapi"))
+    implementation(project(":core:navigation"))
 }
