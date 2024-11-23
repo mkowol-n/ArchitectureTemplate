@@ -49,6 +49,14 @@ dependencies {
     implementation(project(":core:navigation:graphs:main-graph"))
     implementation(project(":core:config:http"))
     implementation(project(":core:config:shared"))
+
+    implementation(project(":features:todo_list"))
+    implementation(project(":features:account"))
+    implementation(project(":features:todo-details"))
+    implementation(project(":features:todo-details:impl"))
+    implementation(project(":features:todo_list:impl"))
+    implementation(project(":features:account:impl"))
+
     implementation(libs.timber)
 
 
