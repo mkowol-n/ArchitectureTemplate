@@ -12,19 +12,52 @@ class Navigator(val parent: Navigator?, private val navigator: NavController) {
     private val results = mutableStateMapOf<String, Any?>()
 
     fun replaceAll(directions: List<Direction>) {
-        directions.forEachIndexed { index, any ->
+        directions.forEachIndexed { index, direction ->
             if(index == 0) {
-                navigator.navigate(any) {
+                navigator.navigate(direction) {
                     popUpTo(navigator.graph.startDestinationId) { inclusive = true }
                 }
             } else {
-                navigator.navigate(any)
+                navigator.navigate(direction)
             }
+        }
+    }
+    fun replaceAll(direction: Direction) {
+        navigator.navigate(direction) {
+            popUpTo(navigator.graph.startDestinationId) { inclusive = true }
+        }
+    }
+
+    fun replace(directions: List<Direction>) {
+        directions.forEachIndexed { index, direction ->
+            if(index == 0) {
+                navigator.navigate(direction) {
+                    popUpTo(navigator.graph.last().id)
+                }
+            } else {
+                navigator.navigate(direction)
+            }
+        }
+    }
+
+    fun replace(direction: Direction) {
+        navigator.navigate(direction) {
+            popUpTo(navigator.graph.last().id)
+        }
+    }
+
+    fun push(directions: List<Direction>) {
+        directions.forEach {
+            navigator.navigate(it)
         }
     }
 
     fun push(direction: Direction) {
         navigator.navigate(direction)
+    }
+
+    fun pop() {
+        navigator.popBackStack()
     }
 
     fun popWithResult(value: Pair<String, Any?>) {
