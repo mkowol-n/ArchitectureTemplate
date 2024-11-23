@@ -40,7 +40,7 @@ class DashboardScreen : DashboardScreenRegistry() {
 }
 
 @Composable
-internal fun DashboardContent() {
+fun DashboardContent() {
     val navigator = LocalNavigator.current
 
     val bottomNavOptions = remember {
@@ -77,15 +77,15 @@ internal fun DashboardContent() {
                     fadeIn().togetherWith(fadeOut())
                 }
             ) { selected ->
-                when (selected) {
-                    BottomNavOptions.Todo -> {
-                        TodoGraph()
-                    }
-
-                    BottomNavOptions.Account -> {
-                        AccountGraph()
-                    }
-                }
+//                when (selected) {
+//                    BottomNavOptions.Todo -> {
+//                        TodoGraph()
+//                    }
+//
+//                    BottomNavOptions.Account -> {
+//                        AccountGraph()
+//                    }
+//                }
             }
             when (bottomNavSelectedOption) {
                 BottomNavOptions.Todo -> {

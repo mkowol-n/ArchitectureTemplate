@@ -26,7 +26,7 @@ class LoginScreen: LoginScreenRegistry() {
 }
 
 @Composable
-internal fun LoginContent(viewModel: LoginViewModel = koinViewModel()) {
+fun LoginContent(viewModel: LoginViewModel = koinViewModel()) {
     val navigator = LocalNavigator.current
     Box(Modifier.background(Color.Red).fillMaxSize(), contentAlignment = Alignment.Center) {
         Button(onClick = {

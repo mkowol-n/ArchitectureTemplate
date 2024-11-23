@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import org.koin.compose.KoinContext
+import pl.nepapp.main.MainScreen
 import pl.nepapp.navigation.graphs.maingraph.MainGraph
 
 class MainActivity : ComponentActivity() {
@@ -13,7 +14,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             KoinContext {
-                MainGraph()
+                MainScreen()
             }
         }
     }

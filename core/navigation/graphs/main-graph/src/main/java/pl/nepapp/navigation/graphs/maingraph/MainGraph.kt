@@ -10,13 +10,12 @@ import pl.nepapp.navigation.graphs.base.registerWithSlideAnimation
 
 @Composable
 fun MainGraph(
-    dashboardScreenRegistry: DashboardScreenRegistry = koinInject(),
-    loginScreenRegistry: LoginScreenRegistry = koinInject(),
+
 ) {
     BaseNavHost(
         startDestination = LoginDirection
     ) {
-        loginScreenRegistry.registerWithSlideAnimation(navGraphBuilder = this@BaseNavHost)
-        dashboardScreenRegistry.registerWithSlideAnimation(navGraphBuilder = this@BaseNavHost)
+//        loginScreenRegistry.registerWithSlideAnimation(navGraphBuilder = this@BaseNavHost)
+//        dashboardScreenRegistry.registerWithSlideAnimation(navGraphBuilder = this@BaseNavHost)
     }
 }

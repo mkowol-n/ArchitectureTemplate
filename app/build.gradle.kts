@@ -41,20 +41,24 @@ dependencies {
 //    implementation(libs.androidx.ui.graphics)
 //    implementation(libs.androidx.ui.tooling.preview)
 //    implementation(libs.androidx.material3)
-    implementation(project(":features:login:impl"))
-    implementation(project(":features:dashboard:impl"))
     implementation(project(":features:login"))
     implementation(project(":features:dashboard"))
     implementation(project(":core:navigation:graphs:main-graph"))
     implementation(project(":core:config:http"))
     implementation(project(":core:config:shared"))
 
-    implementation(project(":features:todo_list"))
     implementation(project(":features:account"))
+    implementation(project(":features:main"))
     implementation(project(":features:todo-details"))
+    implementation(project(":features:todo_list"))
+
+    implementation(project(":features:login:impl"))
+    implementation(project(":features:dashboard:impl"))
     implementation(project(":features:todo-details:impl"))
     implementation(project(":features:todo_list:impl"))
     implementation(project(":features:account:impl"))
+    implementation(project(":core:graphapi"))
+    implementation(project(":core:graphapi:impl"))
 
     implementation(libs.timber)
 
