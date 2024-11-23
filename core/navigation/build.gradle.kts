@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "pl.nepapp.navigation"
+    namespace = "pl.nepapp.core.navigation"
 }
 
 dependencies {

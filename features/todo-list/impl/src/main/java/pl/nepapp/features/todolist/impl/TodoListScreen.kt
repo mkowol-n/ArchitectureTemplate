@@ -1,4 +1,4 @@
-package pl.nepapp.features.login.impl
+package pl.nepapp.features.todolist.impl
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -9,18 +9,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import org.koin.androidx.compose.koinViewModel
-import pl.nepapp.features.dashboard.DashboardDirection
+import pl.nepapp.features.tododetails.TodoDetailsDirection
 import pl.nepapp.core.navigation.LocalNavigator
 
 
 @Composable
-fun LoginScreen(viewModel: LoginViewModel = koinViewModel()) {
+fun TodoListContent() {
     val navigator = LocalNavigator.current
-    Box(Modifier.background(Color.Red).fillMaxSize(), contentAlignment = Alignment.Center) {
+    Box(Modifier.background(Color.Green).fillMaxSize(), contentAlignment = Alignment.Center) {
         Button(onClick = {
-           // viewModel.test()
-            navigator?.push(DashboardDirection)
+            navigator?.push(TodoDetailsDirection("jakis fajny id"))
         }) {
             Text("klikaj mnie")
             Text("klikaj mnie")

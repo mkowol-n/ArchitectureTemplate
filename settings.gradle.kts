@@ -34,14 +34,13 @@ include(":features:todo-details")
 include(":features:todo-details:impl")
 include(":features:account")
 include(":features:account:impl")
-include(":features:todo_list")
-include(":features:todo_list:impl")
+include(":features:todo-list")
+include(":features:todo-list:impl")
 
 include(":data:authorization")
 include(":data:authorization:remote")
 include(":data:authorization:impl")
 
-include(":core:config:state-management")
 include(":core:config:http")
 include(":core:config:shared")
 
@@ -49,6 +48,7 @@ include(":core:navigation")
 include(":core:navigation:impl")
 
 include(":core:common")
+include(":core:state-management")
 
 include(":coreUi")
 

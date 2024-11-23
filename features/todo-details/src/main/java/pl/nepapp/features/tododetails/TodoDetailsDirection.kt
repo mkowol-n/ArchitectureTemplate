@@ -1,7 +1,7 @@
-package pl.nepapp.features.account
+package pl.nepapp.features.tododetails
 
 import kotlinx.serialization.Serializable
 import pl.nepapp.core.navigation.Direction
 
 @Serializable
-object AccountDirection: Direction
+data class TodoDetailsDirection(val id: String): Direction

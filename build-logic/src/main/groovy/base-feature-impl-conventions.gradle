@@ -8,7 +8,7 @@ dependencies {
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation(project(":core:config:state-management"))
+    implementation(project(":core:state-management"))
     implementation(project(":core:navigation"))
     implementation(project(":coreUi"))
     implementation(libs.orbit)

@@ -21,8 +21,8 @@ import pl.nepapp.coreui.DisplayType
 import pl.nepapp.coreui.bottomNavigation.NepappBottomNavigation
 import pl.nepapp.coreui.bottomNavigation.NepappBottomNavigationModel
 import pl.nepapp.features.dashboard.impl.models.BottomNavOptions
-import pl.nepapp.navigation.LocalNavigator
-import pl.nepapp.navigation.NepAppGraph
+import pl.nepapp.core.navigation.LocalNavigator
+import pl.nepapp.core.navigation.NepAppGraph
 
 @Composable
 fun DashboardContent(nepAppGraph: NepAppGraph = koinInject()) {
@@ -31,7 +31,7 @@ fun DashboardContent(nepAppGraph: NepAppGraph = koinInject()) {
     val bottomNavOptions = remember {
         BottomNavOptions.entries.map {
             NepappBottomNavigationModel(
-                displaytype = DisplayType.Text(it.text),
+                displayType = DisplayType.Text(it.text),
                 item = it,
             )
         }.toImmutableList()

@@ -30,8 +30,8 @@ internal fun <T> NepappBottomNavigationItem(
             onClick(item.item)
         }
         .fillMaxSize(), contentAlignment = Alignment.Center) {
-        if (item.displaytype is DisplayType.Text) {
-            Text(item.displaytype.text)
+        if (item.displayType is DisplayType.Text) {
+            Text(item.displayType.text)
         }
     }
 }
