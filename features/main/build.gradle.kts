@@ -9,4 +9,5 @@ android {
 dependencies {
     implementation(project(":features:login"))
     implementation(project(":core:navigation"))
+    implementation(project(":core:settings"))
 }

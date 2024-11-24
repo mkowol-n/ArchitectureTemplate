@@ -8,4 +8,6 @@ android {
 
 dependencies {
     implementation(project(":features:account"))
+    implementation(project(":features:login"))
+    implementation(project(":core:settings"))
 }

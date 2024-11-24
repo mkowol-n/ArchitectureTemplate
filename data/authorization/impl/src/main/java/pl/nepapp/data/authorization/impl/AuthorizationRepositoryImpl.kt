@@ -18,7 +18,7 @@ class AuthorizationRepositoryImpl(
 //            )
 //        }
         //Using mock:
-        delay(5000)
+        delay(3000)
         if(email != "test" || password != "test") {
             throw Exception()
         }

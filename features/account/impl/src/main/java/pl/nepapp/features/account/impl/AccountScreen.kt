@@ -1,24 +1,30 @@
 package pl.nepapp.features.account.impl
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Button
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import org.koin.androidx.compose.koinViewModel
+import org.orbitmvi.orbit.compose.collectSideEffect
 import pl.nepapp.core.navigation.LocalNavigator
+import pl.nepapp.coreui.NepAppScaffold
+import pl.nepapp.coreui.buttons.NepAppPrimaryButton
+import pl.nepapp.coreui.extensions.currentOrThrow
+import pl.nepapp.features.login.LoginDirection
 
 @Composable
-fun AccountScreen() {
-    val navigator = LocalNavigator.current
-    Box(Modifier.background(Color.Black).fillMaxSize(), contentAlignment = Alignment.Center) {
-        Button(onClick = {
+fun AccountScreen(viewModel: AccountViewModel = koinViewModel()) {
+    val navigator = LocalNavigator.currentOrThrow
 
-        }) {
-            Text("klikaj mnie")
+    viewModel.collectSideEffect {
+        when(it) {
+            AccountViewModel.AccountSideEffect.LogoutUser -> {
+                navigator.replaceAll(LoginDirection)
+            }
         }
+    }
+
+    NepAppScaffold {
+        NepAppPrimaryButton(
+            title = "Logout",
+            onClick = viewModel::logout
+        )
     }
 }
