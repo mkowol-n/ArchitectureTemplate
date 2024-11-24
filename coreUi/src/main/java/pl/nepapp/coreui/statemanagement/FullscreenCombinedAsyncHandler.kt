@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import pl.nepapp.core.statemanagement.Async
 import pl.nepapp.core.statemanagement.Fail
 import pl.nepapp.core.statemanagement.Loading
-import pl.nepapp.core.statemanagement.Success
 import pl.nepapp.core.statemanagement.Uninitialized
 import pl.nepapp.coreui.showFetchFailed
 

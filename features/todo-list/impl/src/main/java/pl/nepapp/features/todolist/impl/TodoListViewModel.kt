@@ -1,8 +1,6 @@
 package pl.nepapp.features.todolist.impl
 
 import kotlinx.collections.immutable.ImmutableList
-import kotlinx.collections.immutable.persistentListOf
-import kotlinx.coroutines.delay
 import org.koin.android.annotation.KoinViewModel
 import pl.nepapp.core.statemanagement.Async
 import pl.nepapp.core.statemanagement.BaseViewModel

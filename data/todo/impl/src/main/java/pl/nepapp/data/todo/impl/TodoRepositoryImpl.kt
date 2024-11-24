@@ -2,12 +2,9 @@ package pl.nepapp.data.todo.impl
 
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.launch
 import pl.nepapp.data.todo.TodoRepository
 import pl.nepapp.data.todo.TodoResponse
 import pl.nepapp.data.todo.local.TodoDao

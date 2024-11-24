@@ -1,6 +1,5 @@
 package pl.nepapp.coreui.theme
 
-import androidx.compose.material3.lightColorScheme
 import androidx.compose.ui.graphics.Color
 
 internal val colorPrimary = Color(0xffaa22dd)

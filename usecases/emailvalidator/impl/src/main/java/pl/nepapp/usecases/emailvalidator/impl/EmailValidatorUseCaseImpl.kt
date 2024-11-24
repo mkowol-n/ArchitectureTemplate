@@ -1,6 +1,5 @@
 package pl.nepapp.usecases.emailvalidator.impl
 
-import android.provider.ContactsContract.CommonDataKinds.Email
 import android.util.Patterns
 import org.koin.core.annotation.Factory
 import pl.nepapp.usecases.emailvalidator.EmailValidatorUseCase
