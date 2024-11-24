@@ -1,6 +1,8 @@
 package pl.nepapp.features.main
 
+import kotlinx.coroutines.flow.collectLatest
 import org.koin.android.annotation.KoinViewModel
+import pl.nepapp.core.common.handlers.LogoutHandler
 import pl.nepapp.core.navigation.Direction
 import pl.nepapp.core.settings.UserStorage
 import pl.nepapp.core.statemanagement.Async
@@ -10,7 +12,8 @@ import pl.nepapp.core.statemanagement.async
 
 @KoinViewModel
 class MainViewModel(
-    private val userStorage: UserStorage
+    private val userStorage: UserStorage,
+    private val logoutHandler: LogoutHandler
 ) :
     BaseViewModel<MainViewModel.MainState, MainViewModel.MainSideEffect>(MainState()) {
 
@@ -27,9 +30,9 @@ class MainViewModel(
     }
 
     private fun initialize() {
-        intent {
-            async {
-
+        intent(registerIdling = false) {
+            logoutHandler.logoutFlow.collectLatest {
+                postSideEffect(MainSideEffect.LogoutUser)
             }
         }
     }

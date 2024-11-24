@@ -3,6 +3,7 @@ package pl.nepapp.core.navigation.impl
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import pl.nepapp.core.navigation.Direction
@@ -11,9 +12,9 @@ import pl.nepapp.core.navigation.LocalNavigator
 @Composable
 internal fun BaseNavHost(
     startDestination: Direction,
-    builder: NavGraphBuilder.() -> Unit
+    navController: NavHostController = rememberNavController(),
+    builder: NavGraphBuilder.() -> Unit,
 ) {
-    val navController = rememberNavController()
     val parentNavigator = LocalNavigator.current
 
     CompositionLocalProvider(

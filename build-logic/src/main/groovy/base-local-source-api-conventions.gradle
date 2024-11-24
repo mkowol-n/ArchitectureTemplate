@@ -1,7 +1,3 @@
 plugins {
     id("base-kotlin-conventions")
 }
-
-dependencies {
-    implementation(libs.kotlinx.coroutines.core)
-}

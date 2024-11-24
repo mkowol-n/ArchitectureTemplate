@@ -1,6 +1,7 @@
 package pl.nepapp.core.navigation.impl
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavHostController
 import org.koin.core.annotation.Single
 import pl.nepapp.core.navigation.NepAppGraph
 import pl.nepapp.features.account.AccountDirection
@@ -18,9 +19,10 @@ import pl.nepapp.features.todolist.impl.TodoListContent
 class NepAppGraphImpl: NepAppGraph {
 
     @Composable
-    override fun Route() {
+    override fun MainRoute(navHostController: NavHostController) {
         BaseNavHost(
             startDestination = LoginDirection,
+            navController = navHostController
         ) {
             registerWithSlideAnimation<LoginDirection> {
                 LoginScreen()

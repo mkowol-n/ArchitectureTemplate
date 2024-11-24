@@ -1,7 +1,7 @@
 package pl.nepapp.features.account.impl
 
-import androidx.lifecycle.ViewModel
 import org.koin.android.annotation.KoinViewModel
+import pl.nepapp.core.common.handlers.LogoutHandler
 import pl.nepapp.core.settings.UserStorage
 import pl.nepapp.core.statemanagement.Async
 import pl.nepapp.core.statemanagement.BaseViewModel
@@ -10,7 +10,7 @@ import pl.nepapp.core.statemanagement.async
 
 @KoinViewModel
 class AccountViewModel(
-    private val userStorage: UserStorage
+    private val logoutHandler: LogoutHandler
 ): BaseViewModel<AccountViewModel.AccountState, AccountViewModel.AccountSideEffect>(AccountState()) {
 
 
@@ -25,8 +25,7 @@ class AccountViewModel(
     fun logout() {
         intent {
             async {
-                userStorage.clear()
-                postSideEffect(AccountSideEffect.LogoutUser)
+                logoutHandler.logout()
             }.execute {
                 state.copy(
                     logoutRequest = it
