@@ -13,5 +13,4 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.immutableList)
     implementation(project(":core:state-management"))
-    implementation(project(":"))
 }

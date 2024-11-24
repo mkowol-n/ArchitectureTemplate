@@ -69,6 +69,7 @@ dependencies {
     implementation(project(":core:config:http:impl"))
     implementation(project(":core:config:shared"))
     implementation(project(":core:settings:local-impl"))
+    implementation(project(":core:settings"))
 
     implementation(project(":features:main"))
     implementation(project(":features:login:impl"))
@@ -87,4 +88,6 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.koin.compose)
     implementation(libs.koin.core)
+    ksp (libs.koin.compiler)
+    implementation(libs.koin.annotations)
 }

@@ -4,6 +4,7 @@ import okhttp3.OkHttpClient
 import org.koin.core.annotation.ComponentScan
 import org.koin.core.annotation.Module
 import org.koin.core.annotation.Single
+import pl.nepapp.core.settings.BuildConfigProvider
 import pl.nepapp.data.authorization.remote.AuthorizationService
 import java.util.concurrent.TimeUnit
 
@@ -25,7 +26,10 @@ class HttpConfigModule {
     }
 
     @Single
-    fun provideAuthorizationService(builder: RetrofitBuilder): AuthorizationService {
-        return builder.build("https://api.coindesk.com/v1/bpi/currentprice.json/").create(AuthorizationService::class.java)
+    fun provideAuthorizationService(
+        builder: RetrofitBuilder,
+        buildConfigProvider: BuildConfigProvider
+    ): AuthorizationService {
+        return builder.build(buildConfigProvider.baseUrl + "someendpoint/").create(AuthorizationService::class.java)
     }
 }
