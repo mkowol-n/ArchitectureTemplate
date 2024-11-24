@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import pl.nepapp.coreui.buttons.PrimaryButton
+import pl.nepapp.coreui.buttons.NepAppPrimaryButton
 
 @Composable
 fun FullscreenError(
@@ -23,7 +23,7 @@ fun FullscreenError(
     ) {
         Text("Something went wrong...")
         Spacer(modifier = Modifier.height(16.dp))
-        PrimaryButton(
+        NepAppPrimaryButton(
             title = "Retry",
             onClick = onRetry,
         )

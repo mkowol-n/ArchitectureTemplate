@@ -9,12 +9,12 @@ import androidx.compose.ui.text.input.VisualTransformation
 @Composable
 fun NepAppInputField(
     label: String,
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     inputFieldState: InputFieldState,
     onChange: (String) -> Unit,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
-    enabled: Boolean,
+    enabled: Boolean = true,
 ) {
     BaseInputField(
         label= label,

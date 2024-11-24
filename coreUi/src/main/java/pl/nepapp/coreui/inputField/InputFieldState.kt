@@ -5,7 +5,7 @@ data class InputFieldState(
     val value: String,
     val validator: InputFieldValidator = InputFieldValidator.Valid,
 ) {
-    val isValidAndNotBlank = validator is InputFieldValidator.Valid && value.isNotBlank()
+    val isValidAndNotBlank get() = validator is InputFieldValidator.Valid && value.isNotBlank()
 
     companion object {
         val EMPTY = InputFieldState(

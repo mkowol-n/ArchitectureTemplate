@@ -8,8 +8,11 @@ class LoginUseCase(
     private val authrorizationRepository: AuthorizationRepository,
     private val userStorage: pl.nepapp.core.settings.UserStorage
 ) {
-    suspend operator fun invoke() {
-        val response = authrorizationRepository.login()
+    suspend operator fun invoke(email: String, password: String) {
+        val response = authrorizationRepository.login(
+            email = email,
+            password = password
+        )
         userStorage.saveTokens(
             accessToken = response.accessToken,
             refreshToken = response.refreshToken

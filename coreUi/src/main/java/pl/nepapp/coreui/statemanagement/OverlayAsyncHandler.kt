@@ -18,7 +18,7 @@ fun <T> OverlayAsyncHandler(
     modifier: Modifier = Modifier,
     loading: @Composable () -> Unit = {
         FullScreenLoading(
-            modifier = Modifier.alpha(0.9f).background(
+            modifier = Modifier.alpha(0.8f).background(
                 color = Color.White,
             )
         )

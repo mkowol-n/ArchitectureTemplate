@@ -5,7 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun PrimaryButton(
+fun NepAppPrimaryButton(
     title: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
