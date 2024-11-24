@@ -20,6 +20,7 @@ import org.koin.compose.koinInject
 import pl.nepapp.core.navigation.LocalNavigator
 import pl.nepapp.core.navigation.NepAppGraph
 import pl.nepapp.coreui.DisplayType
+import pl.nepapp.coreui.NepAppScaffold
 import pl.nepapp.coreui.bottomNavigation.NepappBottomNavigation
 import pl.nepapp.coreui.bottomNavigation.NepappBottomNavigationModel
 import pl.nepapp.features.dashboard.impl.models.BottomNavOptions
@@ -41,7 +42,7 @@ fun DashboardContent(nepAppGraph: NepAppGraph = koinInject()) {
         mutableStateOf(bottomNavOptions.first().item)
     }
 
-    Scaffold(
+    NepAppScaffold(
         bottomBar = {
             NepappBottomNavigation(
                 onClick = { newBottomItem ->
@@ -54,7 +55,6 @@ fun DashboardContent(nepAppGraph: NepAppGraph = koinInject()) {
     ) {
         Box(
             modifier = Modifier
-                .padding(it)
                 .fillMaxSize()
         ) {
             AnimatedContent(
