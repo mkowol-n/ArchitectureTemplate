@@ -30,7 +30,7 @@ internal fun BaseButton(
         label = ""
     )
     val textColor by animateColorAsState(
-        if (enabled) textColorEnabled else NepAppTheme,
+        if (enabled) textColorEnabled else textColorDisabled,
         label = ""
     )
     Box(
