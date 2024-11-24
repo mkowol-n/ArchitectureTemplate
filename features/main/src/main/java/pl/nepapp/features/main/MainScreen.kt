@@ -6,11 +6,15 @@ import org.koin.androidx.compose.koinViewModel
 import org.koin.compose.koinInject
 import org.orbitmvi.orbit.compose.collectSideEffect
 import pl.nepapp.core.navigation.NepAppGraph
+import pl.nepapp.coreui.theme.NepAppThemeProvider
 import pl.nepapp.features.login.LoginDirection
 
 @Composable
 fun MainScreen(initialScreenIsLogin: Boolean) {
-    MainContent(initialScreenIsLogin)
+
+    NepAppThemeProvider {
+        MainContent(initialScreenIsLogin)
+    }
 }
 
 @Composable
