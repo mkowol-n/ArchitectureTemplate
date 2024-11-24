@@ -16,7 +16,7 @@ fun AccountScreen(viewModel: AccountViewModel = koinViewModel()) {
     viewModel.collectSideEffect {
         when(it) {
             AccountViewModel.AccountSideEffect.LogoutUser -> {
-                navigator.replaceAll(LoginDirection)
+                navigator.parent.replaceAll(LoginDirection)
             }
         }
     }
