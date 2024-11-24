@@ -13,19 +13,17 @@ import pl.nepapp.data.todo.TodoResponse
 import pl.nepapp.data.todo.local.TodoDao
 import pl.nepapp.data.todo.local.TodoEntity
 import java.util.UUID
-import kotlin.random.Random
 
+private var thrown = false
 
 class TodoRepositoryImpl(private val todoDao: TodoDao) : TodoRepository {
-    //Onlt for fast injections
-    private val coroutineScope = CoroutineScope(Dispatchers.IO)
 
-    init {
-        addOnInit()
-    }
-
-    private fun addOnInit() {
-        coroutineScope.launch {
+    override suspend fun getAll(): ImmutableList<TodoResponse> {
+        delay(2000)
+        if(!thrown) {
+            thrown = true
+            throw Exception()
+        } else {
             insertAll(
                 listOf(
                     TodoResponse(
@@ -36,10 +34,6 @@ class TodoRepositoryImpl(private val todoDao: TodoDao) : TodoRepository {
                 )
             )
         }
-    }
-
-    override suspend fun getAll(): ImmutableList<TodoResponse> {
-        delay(5000)
         return todoDao.getAll().map { entity ->
             TodoResponse(
                 id = entity.id,

@@ -2,6 +2,7 @@ package pl.nepapp.features.todolist.impl
 
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
+import kotlinx.coroutines.delay
 import org.koin.android.annotation.KoinViewModel
 import pl.nepapp.core.statemanagement.Async
 import pl.nepapp.core.statemanagement.BaseViewModel
@@ -23,16 +24,8 @@ class TodoListViewModel(
     init {
         initialize()
     }
-    private fun initialize() {
 
-        intent(registerIdling = false) {
-            asyncFlow(todoRepository.getAllFlow()).execute {
-                state.copy(
-                    todoListLocal = it
-                )
-            }
-        }
-
+    fun again() {
         intent {
             async {
                 todoRepository.getAll()
@@ -40,6 +33,18 @@ class TodoListViewModel(
             }.execute {
                 state.copy(
                     todoListRequest = it
+                )
+            }
+        }
+    }
+    private fun initialize() {
+
+        again()
+
+        intent(registerIdling = false) {
+            asyncFlow(todoRepository.getAllFlow()).execute {
+                state.copy(
+                    todoListLocal = it
                 )
             }
         }
