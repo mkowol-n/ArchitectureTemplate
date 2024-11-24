@@ -7,4 +7,5 @@ plugins {
 dependencies {
     implementation(libs.kotlin.serialization)
     implementation(project(":core:navigation"))
+    implementation(libs.navigation.compose)
 }

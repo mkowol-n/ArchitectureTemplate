@@ -10,7 +10,7 @@ class TodoDetailsViewModel(
     savedStateHandle: NavigationSavedStateHandle
 ) : BaseViewModel<TodoDetailsViewModel.TodoDetailsState, Unit>(
     TodoDetailsState(
-        directionModel = savedStateHandle.getDirecion(TodoDetailsDirection::class)
+        directionModel = TodoDetailsDirection.from(savedStateHandle)
     )
 ) {
     data class TodoDetailsState(

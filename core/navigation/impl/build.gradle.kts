@@ -25,5 +25,4 @@ dependencies {
     implementation(libs.navigation.compose)
 
     implementation(libs.koin.compose)
-    implementation(libs.navigation.compose)
 }

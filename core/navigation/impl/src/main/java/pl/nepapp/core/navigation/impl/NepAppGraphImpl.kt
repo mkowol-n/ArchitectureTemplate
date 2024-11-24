@@ -39,9 +39,11 @@ class NepAppGraphImpl: NepAppGraph {
             registerWithSlideAnimation<TodoListDirection> {
                 TodoListContent()
             }
-//            registerWithSlideAnimation<TodoDetailsDirection> {
-//                TodoDetailsScreen()
-//            }
+            registerWithSlideAnimation<TodoDetailsDirection>(
+                typeMap = TodoDetailsDirection.typeMap
+            ) {
+                TodoDetailsScreen()
+            }
         }
     }
 

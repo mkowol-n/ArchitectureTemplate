@@ -4,4 +4,4 @@ import kotlinx.serialization.Serializable
 import pl.nepapp.core.navigation.Direction
 
 @Serializable
-object TodoListDirection: Direction
+data object TodoListDirection: Direction

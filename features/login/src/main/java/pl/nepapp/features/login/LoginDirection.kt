@@ -4,4 +4,5 @@ import kotlinx.serialization.Serializable
 import pl.nepapp.core.navigation.Direction
 
 @Serializable
-object LoginDirection: Direction
+
+data object LoginDirection: Direction
