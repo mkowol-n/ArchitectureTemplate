@@ -9,11 +9,4 @@ android {
 
 dependencies {
     implementation(project(":core:common"))
-
-    implementation(platform(libs.koin.bom))
-    implementation(libs.koin.core)
-
-    ksp(libs.koin.compiler)
-    implementation(libs.koin.annotations)
-
 }

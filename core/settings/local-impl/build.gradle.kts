@@ -10,10 +10,4 @@ android {
 dependencies {
     implementation(libs.datastore)
     implementation(project(":core:settings"))
-
-    implementation(platform(libs.koin.bom))
-    implementation(libs.koin.core)
-
-    ksp(libs.koin.compiler)
-    implementation(libs.koin.annotations)
 }

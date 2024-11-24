@@ -9,4 +9,5 @@ android {
 dependencies {
     implementation(project(":features:todo-details"))
     implementation(project(":features:todo-list"))
+    implementation(project(":data:todo"))
 }

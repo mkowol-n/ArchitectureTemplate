@@ -14,3 +14,11 @@ interface AsyncContext<STATE : Any, SIDE_EFFECT : Any, RESOURCE : Any> {
 
     fun handleError(errorHandler: suspend (Throwable) -> Unit): AsyncContext<STATE, SIDE_EFFECT, RESOURCE>
 }
+
+interface AsyncContextFlow<STATE : Any, SIDE_EFFECT : Any, RESOURCE : Any> {
+    suspend fun execute(
+        reducer: IntentContext<STATE>.(Async<RESOURCE>) -> STATE,
+    )
+
+    fun handleError(errorHandler: suspend (Throwable) -> Unit): AsyncContextFlow<STATE, SIDE_EFFECT, RESOURCE>
+}

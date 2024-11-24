@@ -67,6 +67,7 @@ dependencies {
 
     implementation(project(":core:common:impl"))
     implementation(project(":core:config:http:impl"))
+    implementation(project(":core:config:database"))
     implementation(project(":core:config:shared"))
     implementation(project(":core:settings:local-impl"))
     implementation(project(":core:settings"))
@@ -81,13 +82,11 @@ dependencies {
     implementation(project(":core:navigation:impl"))
 
     implementation(project(":data:authorization:impl"))
+    implementation(project(":data:todo:impl"))
 
     implementation(libs.timber)
 
-    implementation(platform(libs.koin.bom))
     implementation(libs.koin.android)
     implementation(libs.koin.compose)
-    implementation(libs.koin.core)
-    ksp (libs.koin.compiler)
-    implementation(libs.koin.annotations)
+
 }

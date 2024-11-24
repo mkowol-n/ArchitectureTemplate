@@ -12,27 +12,26 @@ import timber.log.Timber
 internal class AsyncContextFlowImpl<STATE : Any, SIDE_EFFECT : Any, RESOURCE : Any>(
     private val action: Flow<RESOURCE>,
     private val simpleSyntaxContext: Syntax<STATE, SIDE_EFFECT>,
-) : AsyncContext<STATE, SIDE_EFFECT, RESOURCE> {
+) : AsyncContextFlow<STATE, SIDE_EFFECT, RESOURCE> {
     private var customErrorHandler: (suspend (Throwable) -> Unit)? = null
 
     override suspend fun execute(
-        cachedValue: Async<RESOURCE>?,
         reducer: IntentContext<STATE>.(Async<RESOURCE>) -> STATE,
     ) {
         var flowValue: RESOURCE? = null
         action.onStart {
-            simpleSyntaxContext.reduce { reducer(Loading(cachedValue?.invoke())) }
+            simpleSyntaxContext.reduce { reducer(Loading()) }
         }.onEach {
             flowValue = it
             simpleSyntaxContext.reduce { reducer(Success(it)) }
         }.catch {ex ->
             Timber.e(ex)
             customErrorHandler?.invoke(ex)
-            simpleSyntaxContext.reduce { reducer(Fail(ex, flowValue ?: cachedValue?.invoke())) }
+            simpleSyntaxContext.reduce { reducer(Fail(ex, flowValue)) }
         }.collect()
     }
 
-    override fun handleError(errorHandler: suspend (Throwable) -> Unit): AsyncContext<STATE, SIDE_EFFECT, RESOURCE> {
+    override fun handleError(errorHandler: suspend (Throwable) -> Unit): AsyncContextFlow<STATE, SIDE_EFFECT, RESOURCE> {
         customErrorHandler = errorHandler
         return this
     }
@@ -45,6 +44,6 @@ internal class AsyncContextFlowImpl<STATE : Any, SIDE_EFFECT : Any, RESOURCE : A
  */
 fun <STATE : Any, SIDE_EFFECT : Any, RESOURCE : Any> Syntax<STATE, SIDE_EFFECT>.asyncFlow(
     flow: Flow<RESOURCE>
-): AsyncContext<STATE, SIDE_EFFECT, RESOURCE> {
+): AsyncContextFlow<STATE, SIDE_EFFECT, RESOURCE> {
     return AsyncContextFlowImpl(flow, this)
 }

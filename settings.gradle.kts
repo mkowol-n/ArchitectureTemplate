@@ -55,3 +55,8 @@ include(":coreUi")
 
 include(":core:settings:local-impl")
 include(":core:config:http:impl")
+include(":core:config:database")
+include(":data:todo")
+include(":data:todo:impl")
+include(":data:todo:local")
+include(":data:todo:local:impl")

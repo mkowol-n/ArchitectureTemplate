@@ -24,12 +24,6 @@ dependencies {
     implementation(project(":core:navigation"))
     implementation(libs.navigation.compose)
 
-    implementation(platform(libs.koin.bom))
-    implementation(libs.koin.android)
-    implementation(libs.koin.core)
     implementation(libs.koin.compose)
-
-    ksp (libs.koin.compiler)
-    implementation(libs.koin.annotations)
     implementation(libs.navigation.compose)
 }
