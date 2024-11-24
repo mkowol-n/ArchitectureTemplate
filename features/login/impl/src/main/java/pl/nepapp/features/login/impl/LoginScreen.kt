@@ -17,6 +17,8 @@ import pl.nepapp.features.dashboard.DashboardDirection
 @Composable
 fun LoginScreen(viewModel: LoginViewModel = koinViewModel()) {
     val navigator = LocalNavigator.current
+
+
     Box(Modifier.background(Color.Red).fillMaxSize(), contentAlignment = Alignment.Center) {
         Button(onClick = {
             navigator?.push(DashboardDirection)
