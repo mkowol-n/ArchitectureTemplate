@@ -8,6 +8,6 @@ android {
 }
 
 dependencies {
-    implementation(libs.datastore)
     implementation(project(":core:settings"))
+    implementation(libs.security.crypto.datastore.preferences)
 }

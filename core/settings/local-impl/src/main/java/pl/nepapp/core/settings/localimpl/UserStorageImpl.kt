@@ -1,17 +1,15 @@
 package pl.nepapp.core.settings.localimpl
 
 import android.content.Context
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
-import androidx.datastore.preferences.preferencesDataStore
+import io.github.osipxd.security.crypto.encryptedPreferencesDataStore
 import org.koin.core.annotation.Single
 import pl.nepapp.core.settings.UserStorage
 
 @Single
 class UserStorageImpl(private val context: Context) : UserStorage {
-    private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "user_storage")
+    private val Context.dataStore by encryptedPreferencesDataStore(name = "user_storage")
 
     override suspend fun saveTokens(accessToken: String, refreshToken: String) {
         context.dataStore.edit { settings ->
