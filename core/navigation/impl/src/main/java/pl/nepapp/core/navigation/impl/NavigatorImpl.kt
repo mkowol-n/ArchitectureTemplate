@@ -19,7 +19,9 @@ class NavigatorImpl(private val _parent: Navigator?, private val navController: 
             if (index == 0) {
                 replaceAll(direction)
             } else {
-                navController.navigate(direction)
+                navController.navigate(direction) {
+                    launchSingleTop = true
+                }
             }
         }
     }
@@ -29,6 +31,7 @@ class NavigatorImpl(private val _parent: Navigator?, private val navController: 
             popUpTo(0) {
                 inclusive = true
             }
+            launchSingleTop = true
         }
     }
 
@@ -37,9 +40,13 @@ class NavigatorImpl(private val _parent: Navigator?, private val navController: 
             if (index == 0) {
                 navController.navigate(direction) {
                     popUpTo(navController.graph.last().id)
+                    launchSingleTop = true
                 }
             } else {
-                navController.navigate(direction)
+                navController.navigate(direction) {
+                    launchSingleTop = true
+                }
+
             }
         }
     }
@@ -47,17 +54,22 @@ class NavigatorImpl(private val _parent: Navigator?, private val navController: 
     override fun replace(direction: Direction) {
         navController.navigate(direction) {
             popUpTo(navController.graph.last().id)
+            launchSingleTop = true
         }
     }
 
     override fun push(directions: List<Direction>) {
         directions.forEach {
-            navController.navigate(it)
+            navController.navigate(it) {
+                launchSingleTop = true
+            }
         }
     }
 
     override fun push(direction: Direction) {
-        navController.navigate(direction)
+        navController.navigate(direction) {
+            launchSingleTop = true
+        }
     }
 
     override fun pop() {

@@ -24,10 +24,10 @@ class NepAppGraphImpl: NepAppGraph {
             startDestination = if(initialScreenIsLogin) LoginDirection else DashboardDirection ,
             navController = navHostController
         ) {
-            registerWithSlideAnimation<LoginDirection> {
+            registerWithNewSlideAnimation<LoginDirection> {
                 LoginScreen()
             }
-            registerWithSlideAnimation<DashboardDirection> {
+            registerWithNewSlideAnimation<DashboardDirection> {
                 DashboardScreen()
             }
         }
@@ -38,10 +38,10 @@ class NepAppGraphImpl: NepAppGraph {
         BaseNavHost(
             startDestination = TodoListDirection,
         ) {
-            registerWithSlideAnimation<TodoListDirection> {
+            registerWithNewSlideAnimation<TodoListDirection> {
                 TodoListContent()
             }
-            registerWithSlideAnimation<TodoDetailsDirection>(
+            registerWithNewSlideAnimation<TodoDetailsDirection>(
                 typeMap = TodoDetailsDirection.typeMap
             ) {
                 TodoDetailsScreen()
@@ -54,7 +54,7 @@ class NepAppGraphImpl: NepAppGraph {
         BaseNavHost(
             startDestination = AccountDirection,
         ) {
-            registerWithSlideAnimation<AccountDirection> {
+            registerWithNewSlideAnimation<AccountDirection> {
                 AccountScreen()
             }
         }
