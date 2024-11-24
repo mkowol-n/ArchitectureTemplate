@@ -1,25 +1,19 @@
 package pl.nepapp.features.main
 
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
 import pl.nepapp.core.common.handlers.LogoutHandler
-import pl.nepapp.core.navigation.Direction
-import pl.nepapp.core.settings.UserStorage
-import pl.nepapp.core.statemanagement.Async
 import pl.nepapp.core.statemanagement.BaseViewModel
 import pl.nepapp.core.statemanagement.Uninitialized
 import pl.nepapp.core.statemanagement.async
 
 @KoinViewModel
 class MainViewModel(
-    private val userStorage: UserStorage,
     private val logoutHandler: LogoutHandler
 ) :
-    BaseViewModel<MainViewModel.MainState, MainViewModel.MainSideEffect>(MainState()) {
-
-    data class MainState(
-        val initialScreenRequest: Async<Direction> = Uninitialized
-    )
+    BaseViewModel<Unit, MainViewModel.MainSideEffect>(Unit) {
 
     sealed class MainSideEffect() {
         data object LogoutUser : MainSideEffect()

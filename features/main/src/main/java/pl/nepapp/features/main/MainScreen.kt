@@ -9,12 +9,13 @@ import pl.nepapp.core.navigation.NepAppGraph
 import pl.nepapp.features.login.LoginDirection
 
 @Composable
-fun MainScreen() {
-    MainContent()
+fun MainScreen(initialScreenIsLogin: Boolean) {
+    MainContent(initialScreenIsLogin)
 }
 
 @Composable
 internal fun MainContent(
+    initialScreenIsLogin: Boolean,
     nepAppGraph: NepAppGraph = koinInject(),
     mainViewModel: MainViewModel = koinViewModel()
 ) {
@@ -32,5 +33,5 @@ internal fun MainContent(
         }
     }
 
-    nepAppGraph.MainRoute(navController)
+    nepAppGraph.MainRoute(navController, initialScreenIsLogin = initialScreenIsLogin)
 }

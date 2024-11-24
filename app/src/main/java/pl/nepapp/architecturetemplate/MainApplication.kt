@@ -47,7 +47,7 @@ class MainApplication: Application() {
                 pl_nepapp_core_config_database_DatabaseModule,
                 pl_nepapp_features_main_MainModule,
                 combinedUseCaseModule,
-                pl_nepapp_usecases_emailvalidator_impl_EmailValidatorModule
+                pl_nepapp_usecases_emailvalidator_impl_EmailValidatorModule,
             )
         }
 

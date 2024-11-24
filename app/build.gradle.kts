@@ -86,10 +86,12 @@ dependencies {
 
     implementation(project(":usecases:combined:impl"))
     implementation(project(":usecases:emailvalidator:impl"))
+    implementation(project(":core:state-management"))
 
     implementation(libs.timber)
 
     implementation(libs.koin.android)
     implementation(libs.koin.compose)
+    implementation(libs.androidx.core.splashscreen)
 
 }

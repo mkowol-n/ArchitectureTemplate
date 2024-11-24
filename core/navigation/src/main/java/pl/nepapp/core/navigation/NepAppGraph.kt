@@ -5,7 +5,7 @@ import androidx.navigation.NavHostController
 
 interface NepAppGraph {
     @Composable
-    fun MainRoute(navHostController: NavHostController)
+    fun MainRoute(navHostController: NavHostController, initialScreenIsLogin: Boolean)
 
     @Composable
     fun TodoRoute()

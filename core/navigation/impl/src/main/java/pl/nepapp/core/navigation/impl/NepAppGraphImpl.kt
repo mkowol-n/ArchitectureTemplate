@@ -19,9 +19,9 @@ import pl.nepapp.features.todolist.impl.TodoListContent
 class NepAppGraphImpl: NepAppGraph {
 
     @Composable
-    override fun MainRoute(navHostController: NavHostController) {
+    override fun MainRoute(navHostController: NavHostController, initialScreenIsLogin: Boolean) {
         BaseNavHost(
-            startDestination = LoginDirection,
+            startDestination = if(initialScreenIsLogin) LoginDirection else DashboardDirection ,
             navController = navHostController
         ) {
             registerWithSlideAnimation<LoginDirection> {
