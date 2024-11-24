@@ -1,13 +1,12 @@
 package pl.nepapp.core.navigation.impl
 
 import androidx.compose.runtime.Composable
-import org.koin.core.annotation.Factory
 import org.koin.core.annotation.Single
 import pl.nepapp.core.navigation.NepAppGraph
 import pl.nepapp.features.account.AccountDirection
 import pl.nepapp.features.account.impl.AccountScreen
 import pl.nepapp.features.dashboard.DashboardDirection
-import pl.nepapp.features.dashboard.impl.DashboardContent
+import pl.nepapp.features.dashboard.impl.DashboardScreen
 import pl.nepapp.features.login.LoginDirection
 import pl.nepapp.features.login.impl.LoginScreen
 import pl.nepapp.features.tododetails.TodoDetailsDirection
@@ -27,7 +26,7 @@ class NepAppGraphImpl: NepAppGraph {
                 LoginScreen()
             }
             registerWithSlideAnimation<DashboardDirection> {
-                DashboardContent()
+                DashboardScreen()
             }
         }
     }
@@ -40,9 +39,9 @@ class NepAppGraphImpl: NepAppGraph {
             registerWithSlideAnimation<TodoListDirection> {
                 TodoListContent()
             }
-            registerWithSlideAnimation<TodoDetailsDirection> {
-                TodoDetailsScreen()
-            }
+//            registerWithSlideAnimation<TodoDetailsDirection> {
+//                TodoDetailsScreen()
+//            }
         }
     }
 

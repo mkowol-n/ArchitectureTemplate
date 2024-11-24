@@ -16,5 +16,4 @@ class TodoDetailsViewModel(
     data class TodoDetailsState(
         val directionModel: TodoDetailsDirection
     )
-
 }

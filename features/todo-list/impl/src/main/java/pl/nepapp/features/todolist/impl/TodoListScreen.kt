@@ -47,7 +47,7 @@ fun TodoListContent(viewModel: TodoListViewModel = koinViewModel()) {
                 items(state) {
                     Column(modifier = Modifier
                         .clickable {
-                            navigator.push(TodoDetailsDirection("sd"))
+                            navigator.push(TodoDetailsDirection(it))
                         }
                         .fillMaxWidth()
                         .height(60.dp)) {

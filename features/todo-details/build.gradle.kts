@@ -5,3 +5,7 @@ plugins {
 android {
     namespace = "pl.nepapp.features.tododetails"
 }
+
+dependencies {
+    implementation(project(":data:todo"))
+}

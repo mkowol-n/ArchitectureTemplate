@@ -23,7 +23,7 @@ import pl.nepapp.coreui.bottomNavigation.NepappBottomNavigationModel
 import pl.nepapp.features.dashboard.impl.models.BottomNavOptions
 
 @Composable
-fun DashboardContent(nepAppGraph: NepAppGraph = koinInject()) {
+fun DashboardScreen(nepAppGraph: NepAppGraph = koinInject()) {
     val bottomNavOptions = remember {
         BottomNavOptions.entries.map {
             NepappBottomNavigationModel(

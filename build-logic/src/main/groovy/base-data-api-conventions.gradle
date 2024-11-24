@@ -1,7 +1,9 @@
 plugins {
     id 'base-kotlin-conventions'
+    id 'org.jetbrains.kotlin.plugin.serialization'
 }
 
 dependencies {
     implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlin.serialization)
 }

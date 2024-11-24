@@ -10,7 +10,6 @@ import pl.nepapp.features.main.MainScreen
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             KoinContext {
                 MainScreen()
