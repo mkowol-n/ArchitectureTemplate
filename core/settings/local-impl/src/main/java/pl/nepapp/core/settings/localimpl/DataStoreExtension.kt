@@ -1,4 +1,4 @@
-package pl.nepapp.core.settings.local.impl
+package pl.nepapp.core.settings.localimpl
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences

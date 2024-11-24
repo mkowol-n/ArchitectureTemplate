@@ -19,7 +19,7 @@ dependencies {
 
     implementation(platform(libs.koin.bom))
     implementation(libs.koin.core)
-    implementation(project(":core:settings:local"))
+    implementation(project(":core:settings"))
     implementation(project(":core:common"))
     implementation(project(":core:config:http"))
 }

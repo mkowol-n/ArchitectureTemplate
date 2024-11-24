@@ -11,14 +11,13 @@ import org.koin.core.annotation.Single
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import pl.nepapp.core.common.handlers.LogoutHandler
-import pl.nepapp.core.settings.local.UserStorage
 import pl.nepapp.data.authorization.remote.AuthorizationService
 
 interface TokenAuthenticator : Authenticator
 
 @Single(binds = [TokenAuthenticator::class])
 class TokenAuthenticatorImpl(
-    private val userStorage: UserStorage,
+    private val userStorage: pl.nepapp.core.settings.UserStorage,
     private val logoutHandler: LogoutHandler
 ) : TokenAuthenticator, KoinComponent {
 

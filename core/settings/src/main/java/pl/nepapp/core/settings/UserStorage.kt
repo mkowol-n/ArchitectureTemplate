@@ -1,4 +1,4 @@
-package pl.nepapp.core.settings.local
+package pl.nepapp.core.settings
 
 interface UserStorage {
     suspend fun saveTokens(accessToken: String, refreshToken: String)

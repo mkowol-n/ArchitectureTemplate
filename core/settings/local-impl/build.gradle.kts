@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    namespace = "pl.nepapp.core.settings.local.impl"
+    namespace = "pl.nepapp.core.settings.localimpl"
 }
 
 dependencies {
     implementation(libs.datastore)
-    implementation(project(":core:settings:local"))
+    implementation(project(":core:settings"))
 
     implementation(platform(libs.koin.bom))
     implementation(libs.koin.core)

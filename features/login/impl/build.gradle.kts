@@ -10,5 +10,5 @@ dependencies {
     implementation(project(":features:login"))
     implementation(project(":features:dashboard"))
     implementation(project(":data:authorization"))
-    implementation(project(":core:settings:local"))
+    implementation(project(":core:settings"))
 }

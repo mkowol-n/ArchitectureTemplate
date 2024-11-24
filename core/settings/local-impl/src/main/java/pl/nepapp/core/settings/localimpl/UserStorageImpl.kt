@@ -1,4 +1,4 @@
-package pl.nepapp.core.settings.local.impl
+package pl.nepapp.core.settings.localimpl
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -7,7 +7,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import org.koin.core.annotation.Single
-import pl.nepapp.core.settings.local.UserStorage
+import pl.nepapp.core.settings.UserStorage
 
 @Single
 class UserStorageImpl(private val context: Context) : UserStorage {
