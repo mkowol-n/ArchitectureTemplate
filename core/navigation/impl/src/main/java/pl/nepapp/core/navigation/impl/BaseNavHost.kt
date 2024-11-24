@@ -17,7 +17,7 @@ internal fun BaseNavHost(
     val parentNavigator = LocalNavigator.current
 
     CompositionLocalProvider(
-        LocalNavigator provides NavigatorImpl(_parent = parentNavigator, navigator = navController)
+        LocalNavigator provides NavigatorImpl(_parent = parentNavigator, navController = navController)
     ){
         NavHost(
             startDestination = startDestination,

@@ -9,7 +9,7 @@ import androidx.navigation.NavController
 import pl.nepapp.core.navigation.Direction
 import pl.nepapp.core.navigation.Navigator
 
-class NavigatorImpl(private val _parent: Navigator?, private val navigator: NavController):
+class NavigatorImpl(private val _parent: Navigator?, private val navController: NavController) :
     Navigator {
     private val results = mutableStateMapOf<String, Any?>()
     override val parent: Navigator get() = requireNotNull(_parent)
@@ -17,56 +17,56 @@ class NavigatorImpl(private val _parent: Navigator?, private val navigator: NavC
     override fun replaceAll(directions: List<Direction>) {
         directions.forEachIndexed { index, direction ->
             if (index == 0) {
-                navigator.navigate(direction) {
-                    popUpTo(navigator.graph.startDestinationId) { inclusive = true }
-                }
+                replaceAll(direction)
             } else {
-                navigator.navigate(direction)
+                navController.navigate(direction)
             }
         }
     }
 
     override fun replaceAll(direction: Direction) {
-        navigator.navigate(direction) {
-            popUpTo(navigator.graph.startDestinationId) { inclusive = true }
+        navController.navigate(direction) {
+            popUpTo(0) {
+                inclusive = true
+            }
         }
     }
 
     override fun replace(directions: List<Direction>) {
         directions.forEachIndexed { index, direction ->
             if (index == 0) {
-                navigator.navigate(direction) {
-                    popUpTo(navigator.graph.last().id)
+                navController.navigate(direction) {
+                    popUpTo(navController.graph.last().id)
                 }
             } else {
-                navigator.navigate(direction)
+                navController.navigate(direction)
             }
         }
     }
 
     override fun replace(direction: Direction) {
-        navigator.navigate(direction) {
-            popUpTo(navigator.graph.last().id)
+        navController.navigate(direction) {
+            popUpTo(navController.graph.last().id)
         }
     }
 
     override fun push(directions: List<Direction>) {
         directions.forEach {
-            navigator.navigate(it)
+            navController.navigate(it)
         }
     }
 
     override fun push(direction: Direction) {
-        navigator.navigate(direction)
+        navController.navigate(direction)
     }
 
     override fun pop() {
-        navigator.popBackStack()
+        navController.popBackStack()
     }
 
     override fun popWithResult(value: Pair<String, Any?>) {
         results[value.first] = value.second
-        navigator.popBackStack()
+        navController.popBackStack()
     }
 
     @Composable

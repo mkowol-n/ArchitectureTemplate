@@ -6,8 +6,6 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -17,7 +15,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import kotlinx.collections.immutable.toImmutableList
 import org.koin.compose.koinInject
-import pl.nepapp.core.navigation.LocalNavigator
 import pl.nepapp.core.navigation.NepAppGraph
 import pl.nepapp.coreui.DisplayType
 import pl.nepapp.coreui.NepAppScaffold
@@ -27,8 +24,6 @@ import pl.nepapp.features.dashboard.impl.models.BottomNavOptions
 
 @Composable
 fun DashboardContent(nepAppGraph: NepAppGraph = koinInject()) {
-    val navigator = LocalNavigator.current
-
     val bottomNavOptions = remember {
         BottomNavOptions.entries.map {
             NepappBottomNavigationModel(
