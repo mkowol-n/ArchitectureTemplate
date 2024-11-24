@@ -84,6 +84,9 @@ dependencies {
     implementation(project(":data:authorization:impl"))
     implementation(project(":data:todo:impl"))
 
+    implementation(project(":usecases:combined:impl"))
+    implementation(project(":usecases:emailvalidator:impl"))
+
     implementation(libs.timber)
 
     implementation(libs.koin.android)

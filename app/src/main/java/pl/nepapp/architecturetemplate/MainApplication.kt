@@ -16,9 +16,11 @@ import org.koin.ksp.generated.pl_nepapp_features_login_impl_LoginModule
 import org.koin.ksp.generated.pl_nepapp_features_main_MainModule
 import org.koin.ksp.generated.pl_nepapp_features_tododetails_impl_TodoListModule
 import org.koin.ksp.generated.pl_nepapp_features_todolist_impl_TodoListModule
+import org.koin.ksp.generated.pl_nepapp_usecases_emailvalidator_impl_EmailValidatorModule
 import pl.nepapp.core.config.shared.sharedConfigModule
 import pl.nepapp.data.authorization.impl.authorizationDataModule
 import pl.nepapp.data.todo.impl.todoDataModule
+import pl.nepapp.usecases.combined.impl.combinedUseCaseModule
 import timber.log.Timber
 
 class MainApplication: Application() {
@@ -43,7 +45,9 @@ class MainApplication: Application() {
                 pl_nepapp_core_common_impl_CommonModule,
                 pl_nepapp_architecturetemplate_AppModule,
                 pl_nepapp_core_config_database_DatabaseModule,
-                pl_nepapp_features_main_MainModule
+                pl_nepapp_features_main_MainModule,
+                combinedUseCaseModule,
+                pl_nepapp_usecases_emailvalidator_impl_EmailValidatorModule
             )
         }
 

@@ -1,0 +1,12 @@
+plugins {
+    id("com.android.library")
+    id("base-android-conventions")
+}
+
+dependencies {
+    implementation(platform(libs.koin.bom))
+    implementation(libs.koin.core)
+
+    ksp libs.koin.compiler
+    implementation(libs.koin.annotations)
+}

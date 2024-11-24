@@ -11,4 +11,6 @@ dependencies {
     implementation(project(":features:dashboard"))
     implementation(project(":data:authorization"))
     implementation(project(":core:settings"))
+    implementation(project(":usecases:emailvalidator"))
+    implementation(project(":usecases:combined"))
 }
