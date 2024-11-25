@@ -1,9 +1,11 @@
-package pl.nepapp.core.navigation.impl
+package pl.nepapp.features
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import org.koin.core.annotation.Single
 import pl.nepapp.core.navigation.NepAppGraph
+import pl.nepapp.core.navigation.impl.BaseNavHost
+import pl.nepapp.core.navigation.impl.registerWithNewSlideAnimation
 import pl.nepapp.features.account.AccountDirection
 import pl.nepapp.features.account.impl.AccountScreen
 import pl.nepapp.features.dashboard.DashboardDirection
@@ -15,7 +17,6 @@ import pl.nepapp.features.tododetails.impl.TodoDetailsScreen
 import pl.nepapp.features.todolist.TodoListDirection
 import pl.nepapp.features.todolist.impl.TodoListContent
 
-@Single
 class NepAppGraphImpl: NepAppGraph {
 
     @Composable

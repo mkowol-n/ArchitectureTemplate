@@ -17,7 +17,7 @@ import pl.nepapp.core.navigation.impl.animations.PopExitSlideInHorizontally
 import pl.nepapp.core.navigation.impl.animations.PopExitSlideOutHorizontally
 import kotlin.reflect.KType
 
-internal inline fun <reified T : Direction> NavGraphBuilder.registerWithSlideAnimation(
+inline fun <reified T : Direction> NavGraphBuilder.registerWithSlideAnimation(
     typeMap: Map<KType, @JvmSuppressWildcards NavType<*>> = emptyMap(),
     noinline content: @Composable AnimatedContentScope.(NavBackStackEntry) -> Unit
 ) {
@@ -31,7 +31,7 @@ internal inline fun <reified T : Direction> NavGraphBuilder.registerWithSlideAni
     )
 }
 
-internal inline fun <reified T : Direction> NavGraphBuilder.registerWithNewSlideAnimation(
+inline fun <reified T : Direction> NavGraphBuilder.registerWithNewSlideAnimation(
     typeMap: Map<KType, @JvmSuppressWildcards NavType<*>> = emptyMap(),
     noinline content: @Composable AnimatedContentScope.(NavBackStackEntry) -> Unit
 ) {

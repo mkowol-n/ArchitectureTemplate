@@ -26,6 +26,7 @@ includeBuild("build-logic")
 
 include(":app")
 include(":features:main")
+include(":features")
 include(":features:login")
 include(":features:login:impl")
 include(":features:dashboard")
