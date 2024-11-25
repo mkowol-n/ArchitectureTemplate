@@ -1,4 +1,4 @@
-package pl.nepapp.core.navigation
+package pl.nepapp.features
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController

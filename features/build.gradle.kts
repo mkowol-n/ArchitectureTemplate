@@ -5,13 +5,10 @@ plugins {
 }
 
 android {
-    namespace = "pl.nepapp.core.navigation.impl"
+    namespace = "pl.nepapp.core.navigation"
 }
 
 dependencies {
-
-    implementation(project(":core:navigation"))
+    implementation(libs.kotlin.serialization)
     implementation(libs.navigation.compose)
-
-    implementation(libs.koin.compose)
 }

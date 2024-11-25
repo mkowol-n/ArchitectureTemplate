@@ -11,4 +11,5 @@ dependencies {
     implementation(project(":core:navigation"))
     implementation(project(":core:settings"))
     implementation(libs.navigation.compose)
+    implementation(project(":features"))
 }

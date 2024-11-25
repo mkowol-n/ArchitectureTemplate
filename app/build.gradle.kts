@@ -72,17 +72,11 @@ dependencies {
     implementation(project(":core:settings:local-impl"))
     implementation(project(":core:settings"))
 
-    implementation(project(":features:main"))
-    implementation(project(":features:login:impl"))
-    implementation(project(":features:dashboard:impl"))
-    implementation(project(":features:todo-details:impl"))
-    implementation(project(":features:todo-list:impl"))
-    implementation(project(":features:account:impl"))
-
     implementation(project(":core:navigation:impl"))
 
     implementation(project(":data:authorization:impl"))
     implementation(project(":data:todo:impl"))
+    implementation(project(":features:main"))
 
     implementation(project(":usecases:combined:impl"))
     implementation(project(":usecases:emailvalidator:impl"))
@@ -93,5 +87,7 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.koin.compose)
     implementation(libs.androidx.core.splashscreen)
+    implementation(project(":features"))
+    implementation(project(":features:impl"))
 
 }

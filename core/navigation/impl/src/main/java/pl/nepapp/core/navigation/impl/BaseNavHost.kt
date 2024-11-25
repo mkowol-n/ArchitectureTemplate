@@ -10,7 +10,7 @@ import pl.nepapp.core.navigation.Direction
 import pl.nepapp.core.navigation.LocalNavigator
 
 @Composable
-internal fun BaseNavHost(
+fun BaseNavHost(
     startDestination: Direction,
     navController: NavHostController = rememberNavController(),
     builder: NavGraphBuilder.() -> Unit,
