@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import pl.nepapp.core.statemanagement.Async
 import pl.nepapp.core.statemanagement.Fail
 import pl.nepapp.core.statemanagement.Loading
+import pl.nepapp.core.statemanagement.Success
 import pl.nepapp.core.statemanagement.Uninitialized
 import pl.nepapp.coreui.showFetchFailed
 
@@ -27,20 +28,27 @@ fun <T> FullscreenCombinedAsyncHandler(
     success: @Composable (T) -> Unit,
 ) {
     LaunchedEffect(remoteState) {
-        if(remoteState is Fail) {
+        if(remoteState is Fail && localState is Success) {
             snackbarHostState.showFetchFailed()
         }
     }
     Column {
-        AnimatedVisibility(modifier = Modifier.fillMaxWidth(), visible = remoteState is Loading) {
+        AnimatedVisibility(modifier = Modifier.fillMaxWidth(), visible = remoteState is Loading && localState !is Loading) {
             LinearProgressIndicator()
         }
         Crossfade(localState, label = "") { local ->
             when {
                 local() != null -> success(requireNotNull(local()))
-                local is Uninitialized -> uninitialized()
-                local is Loading -> loading()
                 local is Fail -> error(local.error)
+                local is Uninitialized -> uninitialized()
+                local is Loading -> {
+                    Crossfade(targetState = remoteState, label = "") { remote ->
+                        when {
+                            remote is Fail -> error(remote.error)
+                            else -> loading()
+                        }
+                    }
+                }
             }
         }
     }

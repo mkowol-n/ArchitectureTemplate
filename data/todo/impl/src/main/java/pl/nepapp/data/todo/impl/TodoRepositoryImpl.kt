@@ -4,6 +4,7 @@ import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.map
 import pl.nepapp.data.todo.TodoRepository
 import pl.nepapp.data.todo.TodoResponse
@@ -17,20 +18,16 @@ class TodoRepositoryImpl(private val todoDao: TodoDao) : TodoRepository {
 
     override suspend fun getAll(): ImmutableList<TodoResponse> {
         delay(2000)
-        if(!thrown) {
-            thrown = true
-            throw Exception()
-        } else {
-            insertAll(
-                listOf(
-                    TodoResponse(
-                        id = UUID.randomUUID().toString(),
-                        title = UUID.randomUUID().toString(),
-                        description = UUID.randomUUID().toString()
-                    )
+        insertAll(
+            listOf(
+                TodoResponse(
+                    id = UUID.randomUUID().toString(),
+                    title = UUID.randomUUID().toString(),
+                    description = UUID.randomUUID().toString()
                 )
             )
-        }
+        )
+        throw Exception()
         return todoDao.getAll().map { entity ->
             TodoResponse(
                 id = entity.id,
@@ -49,6 +46,8 @@ class TodoRepositoryImpl(private val todoDao: TodoDao) : TodoRepository {
                     description = entity.description
                 )
             }.toImmutableList()
+        }.filter {
+            it.size > 3
         }
     }
 
