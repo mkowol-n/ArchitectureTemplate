@@ -66,9 +66,9 @@ dependencies {
     implementation(libs.androidx.activity.compose)
 
     implementation(project(":core:common:impl"))
-    implementation(project(":core:config:http:impl"))
-    implementation(project(":core:config:database"))
-    implementation(project(":core:config:shared"))
+    implementation(project(":infrastructure:http:impl"))
+    implementation(project(":infrastructure:database"))
+    implementation(project(":infrastructure:shared"))
     implementation(project(":core:settings:local-impl"))
     implementation(project(":core:settings"))
 

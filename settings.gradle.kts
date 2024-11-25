@@ -41,9 +41,6 @@ include(":data:authorization")
 include(":data:authorization:remote")
 include(":data:authorization:impl")
 
-include(":core:config:http")
-include(":core:config:shared")
-
 include(":core:navigation")
 include(":core:navigation:impl")
 
@@ -54,8 +51,6 @@ include(":core:state-management")
 include(":coreUi")
 
 include(":core:settings:local-impl")
-include(":core:config:http:impl")
-include(":core:config:database")
 include(":data:todo")
 include(":data:todo:impl")
 include(":data:todo:local")
@@ -64,3 +59,8 @@ include(":usecases:combined")
 include(":usecases:combined:impl")
 include(":usecases:emailvalidator")
 include(":usecases:emailvalidator:impl")
+
+include(":infrastructure:database")
+include(":infrastructure:http:impl")
+include(":infrastructure:http")
+include(":infrastructure:shared")
