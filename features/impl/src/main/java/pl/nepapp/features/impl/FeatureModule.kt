@@ -1,4 +1,4 @@
-package pl.nepapp.features
+package pl.nepapp.features.impl
 
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
@@ -7,7 +7,7 @@ import org.koin.ksp.generated.pl_nepapp_features_dashboard_impl_DashboardModule
 import org.koin.ksp.generated.pl_nepapp_features_login_impl_LoginModule
 import org.koin.ksp.generated.pl_nepapp_features_tododetails_impl_TodoListModule
 import org.koin.ksp.generated.pl_nepapp_features_todolist_impl_TodoListModule
-import pl.nepapp.core.navigation.NepAppGraph
+import pl.nepapp.features.NepAppGraph
 
 val featureModule = module{
     singleOf<NepAppGraph>(::NepAppGraphImpl)

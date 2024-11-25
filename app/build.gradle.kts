@@ -88,5 +88,6 @@ dependencies {
     implementation(libs.koin.compose)
     implementation(libs.androidx.core.splashscreen)
     implementation(project(":features"))
+    implementation(project(":features:impl"))
 
 }

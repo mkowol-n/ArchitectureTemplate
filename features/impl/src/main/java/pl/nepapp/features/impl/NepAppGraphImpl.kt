@@ -1,11 +1,10 @@
-package pl.nepapp.features
+package pl.nepapp.features.impl
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
-import org.koin.core.annotation.Single
-import pl.nepapp.core.navigation.NepAppGraph
 import pl.nepapp.core.navigation.impl.BaseNavHost
 import pl.nepapp.core.navigation.impl.registerWithNewSlideAnimation
+import pl.nepapp.features.NepAppGraph
 import pl.nepapp.features.account.AccountDirection
 import pl.nepapp.features.account.impl.AccountScreen
 import pl.nepapp.features.dashboard.DashboardDirection

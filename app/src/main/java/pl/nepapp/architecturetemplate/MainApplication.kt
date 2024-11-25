@@ -15,7 +15,7 @@ import org.koin.ksp.generated.pl_nepapp_usecases_emailvalidator_impl_EmailValida
 import pl.nepapp.infrastructure.shared.sharedConfigModule
 import pl.nepapp.data.authorization.impl.authorizationDataModule
 import pl.nepapp.data.todo.impl.todoDataModule
-import pl.nepapp.features.featureModule
+import pl.nepapp.features.impl.featureModule
 import pl.nepapp.usecases.combined.impl.combinedUseCaseModule
 import timber.log.Timber
 
