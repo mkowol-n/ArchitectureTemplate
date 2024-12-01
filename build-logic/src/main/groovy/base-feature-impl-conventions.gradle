@@ -16,4 +16,5 @@ dependencies {
     implementation(libs.orbit.compose)
     implementation(libs.immutableList)
     implementation(libs.koin.compose)
+    implementation(libs.koin.android)
 }

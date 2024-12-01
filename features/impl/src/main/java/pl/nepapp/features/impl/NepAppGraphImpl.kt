@@ -2,6 +2,10 @@ package pl.nepapp.features.impl
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
+import org.koin.compose.getKoin
+import org.koin.compose.scope.KoinScope
+import org.koin.compose.scope.rememberKoinScope
+import org.koin.core.qualifier.StringQualifier
 import pl.nepapp.core.navigation.impl.BaseNavHost
 import pl.nepapp.core.navigation.impl.registerWithNewSlideAnimation
 import pl.nepapp.features.NepAppGraph
@@ -35,18 +39,20 @@ class NepAppGraphImpl: NepAppGraph {
 
     @Composable
     override fun TodoRoute() {
-        BaseNavHost(
-            startDestination = TodoListDirection,
-        ) {
-            registerWithNewSlideAnimation<TodoListDirection> {
-                TodoListContent()
-            }
-            registerWithNewSlideAnimation<TodoDetailsDirection>(
-                typeMap = TodoDetailsDirection.typeMap
+       // KoinScope<MainScopes>(scopeID = "MainScope") {
+            BaseNavHost(
+                startDestination = TodoListDirection,
             ) {
-                TodoDetailsScreen()
-            }
-        }
+                registerWithNewSlideAnimation<TodoListDirection> {
+                    TodoListContent()
+                }
+                registerWithNewSlideAnimation<TodoDetailsDirection>(
+                    typeMap = TodoDetailsDirection.typeMap
+                ) {
+                    TodoDetailsScreen()
+                }
+           }
+      //  }
     }
 
     @Composable

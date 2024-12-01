@@ -13,4 +13,5 @@ dependencies {
     implementation(libs.immutableList)
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlin.serialization)
+    implementation(libs.koin.annotations)
 }

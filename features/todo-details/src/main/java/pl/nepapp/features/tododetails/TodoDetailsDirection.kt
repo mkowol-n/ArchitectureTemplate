@@ -1,8 +1,10 @@
 package pl.nepapp.features.tododetails
 
+import androidx.lifecycle.SavedStateHandle
 import kotlinx.serialization.Serializable
 import pl.nepapp.core.navigation.Direction
 import pl.nepapp.core.navigation.NavigationSavedStateHandle
+import pl.nepapp.core.navigation.getDirection
 import pl.nepapp.core.navigation.serializableType
 import pl.nepapp.data.todo.TodoResponse
 import kotlin.reflect.typeOf
@@ -15,8 +17,8 @@ data class TodoDetailsDirection(
     companion object {
         val typeMap = mapOf(typeOf<TodoResponse>() to serializableType<TodoResponse>())
 
-        fun from(savedStateHandle: NavigationSavedStateHandle): TodoDetailsDirection {
-            return savedStateHandle.getDirecion(
+        fun from(savedStateHandle: SavedStateHandle): TodoDetailsDirection {
+            return savedStateHandle.getDirection(
                 TodoDetailsDirection::class,
                 typeMap
             )

@@ -5,4 +5,5 @@ plugins {
 dependencies {
     implementation(project(":data:todo"))
     implementation(project(":data:todo:local"))
+    implementation(project(":core:common"))
 }

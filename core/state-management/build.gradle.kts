@@ -14,4 +14,6 @@ dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.compose.foundation)
     implementation(libs.timber)
+    implementation(libs.koin.android)
+    implementation(project(":core:common"))
 }

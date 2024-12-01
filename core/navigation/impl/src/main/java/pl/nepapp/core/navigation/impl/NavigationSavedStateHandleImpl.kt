@@ -16,10 +16,7 @@ class NavigationSavedStateHandleImpl(
 ) : NavigationSavedStateHandle {
 
     @SuppressLint("RestrictedApi")
-    override fun <T : Direction> getDirecion(
-        clazz: KClass<T>,
-        typeMap: Map<KType, @JvmSuppressWildcards NavType<*>>
-    ): T {
+    override fun <T : Direction> getDirecion(clazz: KClass<T>, typeMap: Map<KType, NavType<*>>): T {
         return savedStateHandle.internalToRoute(route = clazz, typeMap = typeMap)
     }
 }
