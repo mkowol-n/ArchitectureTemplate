@@ -20,6 +20,8 @@ class HttpConfigModule {
             authenticator(authenticator)
             readTimeout(60, TimeUnit.SECONDS)
             connectTimeout(60, TimeUnit.SECONDS)
+        }.apply {
+            OkHttpBuilderSteps.INSTANCE.applySteps(this)
         }.build()
     }
 }

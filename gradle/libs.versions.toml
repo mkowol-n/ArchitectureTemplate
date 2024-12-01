@@ -22,6 +22,8 @@ ksp = "2.0.21-1.0.28"
 
 koinBom = "4.0.0"
 ben-manes = "0.51.0"
+chucker = "4.0.0"
+
 
 
 # koin annotations 1.4.0 is facing an issue:
@@ -62,6 +64,8 @@ koin-annotations = { group = "io.insert-koin", name = "koin-annotations", versio
 koin-compiler = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koinAnnotations" }
 
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+chucker = { module = "com.github.chuckerteam.chucker:library", version.ref = "chucker" }
+
 retrofitMoshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
 
 

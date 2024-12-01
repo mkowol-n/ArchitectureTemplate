@@ -1,0 +1,12 @@
+plugins {
+    id 'com.android.library'
+    id 'base-android-conventions'
+}
+
+android {
+    buildTypes {
+        internal {
+            initWith(buildTypes.release)
+        }
+    }
+}

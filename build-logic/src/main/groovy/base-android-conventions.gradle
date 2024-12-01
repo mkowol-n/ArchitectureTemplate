@@ -14,9 +14,6 @@ android {
         release {
             // Release build type configurations
         }
-        internal {
-            initWith(buildTypes.release)
-        }
     }
 
     compileOptions {

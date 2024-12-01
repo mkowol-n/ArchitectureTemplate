@@ -1,6 +1,5 @@
 plugins {
-    id("com.android.library")
-    id("base-android-conventions")
+    id("base-android-library-conventions")
 }
 
 dependencies {

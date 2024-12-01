@@ -20,10 +20,11 @@ import pl.nepapp.features.impl.featureModule
 import pl.nepapp.usecases.combined.impl.combinedUseCaseModule
 import timber.log.Timber
 
-class MainApplication: Application() {
+open class MainApplication: Application() {
     override fun onCreate() {
         super.onCreate()
 
+        setupDevTools()
         startKoin {
             androidLogger()
             androidContext(this@MainApplication)
@@ -49,4 +50,9 @@ class MainApplication: Application() {
             Timber.plant(Timber.DebugTree())
         }
     }
+
+    protected open fun setupDevTools() {
+        // nothing here, only for override
+    }
+
 }

@@ -15,7 +15,7 @@ android {
     }
 
     buildTypes {
-        release {
+        val release by getting {
             signingConfig = signingConfigs.getByName("debug")
             isMinifyEnabled = true
             isShrinkResources = true
@@ -23,6 +23,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+
+        val internal by creating {
+            initWith(release)
         }
     }
 
@@ -63,6 +67,10 @@ android {
 }
 
 dependencies {
+    val internalImplementation by configurations
+
+    internalImplementation(libs.chucker)
+
     implementation(libs.androidx.activity.compose)
 
     implementation(project(":core:common:impl"))
