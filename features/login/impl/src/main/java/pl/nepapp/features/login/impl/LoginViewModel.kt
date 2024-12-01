@@ -22,8 +22,8 @@ class LoginViewModel(
 ) {
     data class LoginState(
         val loginRequest: Async<Unit> = Uninitialized,
-        val loginInputField: InputFieldState = InputFieldState.EMPTY,
-        val passwordInputField: InputFieldState = InputFieldState.EMPTY,
+        val loginInputField: InputFieldState = InputFieldState("test"),
+        val passwordInputField: InputFieldState = InputFieldState("test"),
     ) {
         val isButtonEnabled =
             loginInputField.isValidAndNotBlank && passwordInputField.isValidAndNotBlank

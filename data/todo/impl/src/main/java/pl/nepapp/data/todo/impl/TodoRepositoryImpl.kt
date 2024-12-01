@@ -4,7 +4,10 @@ import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import pl.nepapp.data.todo.TodoRepository
 import pl.nepapp.data.todo.TodoResponse
@@ -12,7 +15,7 @@ import pl.nepapp.data.todo.local.TodoDao
 import pl.nepapp.data.todo.local.TodoEntity
 import java.util.UUID
 
-private var thrown = false
+var counter = 0
 
 class TodoRepositoryImpl(private val todoDao: TodoDao) : TodoRepository {
 
@@ -27,14 +30,18 @@ class TodoRepositoryImpl(private val todoDao: TodoDao) : TodoRepository {
                 )
             )
         )
+        counter ++
+        if(counter == 4) {
+            return todoDao.getAll().map { entity ->
+                TodoResponse(
+                    id = entity.id,
+                    title = entity.title,
+                    description = entity.description
+                )
+            }.toImmutableList()
+        }
         throw Exception()
-        return todoDao.getAll().map { entity ->
-            TodoResponse(
-                id = entity.id,
-                title = entity.title,
-                description = entity.description
-            )
-        }.toImmutableList()
+
     }
 
     override fun getAllFlow(): Flow<ImmutableList<TodoResponse>> {
