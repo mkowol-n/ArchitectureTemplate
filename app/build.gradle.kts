@@ -67,7 +67,7 @@ dependencies {
 
     implementation(project(":core:common:impl"))
     implementation(project(":core:config:http:impl"))
-    implementation(project(":infrastructure:shared"))
+    implementation(project(":core:third-party"))
     implementation(project(":core:settings:local-impl"))
     implementation(project(":core:settings"))
 

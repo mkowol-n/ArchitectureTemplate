@@ -9,11 +9,11 @@ import org.koin.ksp.generated.pl_nepapp_core_common_impl_CommonModule
 import org.koin.ksp.generated.pl_nepapp_core_config_http_impl_HttpConfigModule
 import org.koin.ksp.generated.pl_nepapp_core_navigation_impl_NavigationModule
 import org.koin.ksp.generated.pl_nepapp_core_settings_localimpl_LocalSettingsModule
+import org.koin.ksp.generated.pl_nepapp_core_thirdparty_SharedConfigModule
 import org.koin.ksp.generated.pl_nepapp_data_authorization_remote_impl_DataAuthorizationRemoteModule
 import org.koin.ksp.generated.pl_nepapp_data_todo_local_impl_TodoDatabaseModule
 import org.koin.ksp.generated.pl_nepapp_features_main_MainModule
 import org.koin.ksp.generated.pl_nepapp_usecases_emailvalidator_impl_EmailValidatorModule
-import pl.nepapp.infrastructure.shared.sharedConfigModule
 import pl.nepapp.data.authorization.impl.authorizationDataModule
 import pl.nepapp.data.todo.impl.todoDataModule
 import pl.nepapp.features.impl.featureModule
@@ -30,7 +30,6 @@ class MainApplication: Application() {
             modules(
                 authorizationDataModule,
                 todoDataModule,
-                sharedConfigModule,
                 pl_nepapp_core_navigation_impl_NavigationModule,
                 pl_nepapp_core_settings_localimpl_LocalSettingsModule,
                 pl_nepapp_core_common_impl_CommonModule,
@@ -41,7 +40,8 @@ class MainApplication: Application() {
                 pl_nepapp_features_main_MainModule,
                 pl_nepapp_core_config_http_impl_HttpConfigModule,
                 pl_nepapp_data_authorization_remote_impl_DataAuthorizationRemoteModule,
-                pl_nepapp_data_todo_local_impl_TodoDatabaseModule
+                pl_nepapp_data_todo_local_impl_TodoDatabaseModule,
+                pl_nepapp_core_thirdparty_SharedConfigModule
             )
         }
 
