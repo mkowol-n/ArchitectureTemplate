@@ -2,27 +2,19 @@ package pl.nepapp.coreui.statemanagement
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.Crossfade
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.SnackbarHostState
-import androidx.compose.material3.pulltorefresh.PullToRefreshBox
-import androidx.compose.material3.pulltorefresh.PullToRefreshDefaults
-import androidx.compose.material3.pulltorefresh.PullToRefreshDefaults.Indicator
-import androidx.compose.material3.pulltorefresh.pullToRefresh
 import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import pl.nepapp.core.statemanagement.Async
 import pl.nepapp.core.statemanagement.Fail
 import pl.nepapp.core.statemanagement.Loading
 import pl.nepapp.core.statemanagement.Success
-import pl.nepapp.core.statemanagement.Uninitialized
 import pl.nepapp.coreui.showFetchFailed
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -36,11 +28,11 @@ fun <T> FullscreenCombinedAsyncHandler(
     loading: @Composable () -> Unit = { FullScreenLoading() },
     success: @Composable (T) -> Unit,
 ) {
-    val state = rememberPullToRefreshState()
+    val pullToRefreshState = rememberPullToRefreshState()
 
     LaunchedEffect(remoteState) {
         if (remoteState is Loading) {
-            state.animateToHidden()
+            pullToRefreshState.animateToHidden()
         }
     }
 
@@ -50,13 +42,10 @@ fun <T> FullscreenCombinedAsyncHandler(
         }
     }
 
-    Box(
-        modifier = Modifier.pullToRefresh(
-            state = state,
-            enabled = remoteState !is Loading,
-            onRefresh = onRetryAction,
-            isRefreshing = false,
-        )
+    RefreshBox(
+        enabled = remoteState !is Loading,
+        onRetryAction = onRetryAction,
+        pullToRefreshState = pullToRefreshState,
     ) {
         Column {
             AnimatedVisibility(
@@ -79,11 +68,5 @@ fun <T> FullscreenCombinedAsyncHandler(
                 }
             }
         }
-        Indicator(
-            modifier = Modifier.align(Alignment.TopCenter),
-            isRefreshing = false,
-            state = state
-        )
     }
-
 }

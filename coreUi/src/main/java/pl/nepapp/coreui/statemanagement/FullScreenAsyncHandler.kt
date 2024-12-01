@@ -1,7 +1,10 @@
 package pl.nepapp.coreui.statemanagement
 
 import androidx.compose.animation.Crossfade
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import pl.nepapp.core.statemanagement.Async
 import pl.nepapp.core.statemanagement.Fail
 import pl.nepapp.core.statemanagement.Loading
@@ -19,6 +22,7 @@ import pl.nepapp.core.statemanagement.Uninitialized
  * @param uninitialized Component for uninitialized state. Defaults to [FullScreenLoading]
  * @param success Component for success state
  */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun <T> FullscreenAsyncHandler(
     state: Async<T>,
@@ -28,12 +32,26 @@ fun <T> FullscreenAsyncHandler(
     uninitialized: @Composable () -> Unit = loading,
     success: @Composable (T) -> Unit,
 ) {
-    Crossfade(targetState = state, label = "") {
-        when {
-            it() != null -> success(requireNotNull(it()))
-            it is Uninitialized -> uninitialized()
-            it is Loading -> loading()
-            it is Fail -> error(it.error)
+    val pullToRefreshState = rememberPullToRefreshState()
+
+    LaunchedEffect(state) {
+        if (state !is Loading || state() == null) {
+            pullToRefreshState.animateToHidden()
+        }
+    }
+
+    RefreshBox(
+        pullToRefreshState = pullToRefreshState,
+        enabled = state !is Loading,
+        onRetryAction = onRetryAction,
+    ) {
+        Crossfade(targetState = state, label = "") {
+            when {
+                it() != null -> success(requireNotNull(it()))
+                it is Uninitialized -> uninitialized()
+                it is Loading -> loading()
+                it is Fail -> error(it.error)
+            }
         }
     }
 }
