@@ -1,7 +1,7 @@
 package pl.nepapp.data.authorization.impl
 
 import kotlinx.coroutines.delay
-import pl.nepapp.infrastructure.http.NetworkResponseConverter
+import pl.nepapp.core.config.http.NetworkResponseConverter
 import pl.nepapp.data.authorization.AuthorizationRepository
 import pl.nepapp.data.authorization.models.LoginResponse
 import pl.nepapp.data.authorization.remote.AuthorizationService

@@ -5,5 +5,5 @@ plugins {
 dependencies {
     implementation(project(":data:authorization"))
     implementation(project(":data:authorization:remote"))
-    implementation(project(":infrastructure:http"))
+    implementation(project(":core:config:http"))
 }
