@@ -1,27 +1,26 @@
-package pl.nepapp.infrastructure.database
+package pl.nepapp.data.todo.local.impl
 
 import android.content.Context
 import androidx.room.Room
 import org.koin.core.annotation.ComponentScan
-import org.koin.core.annotation.Factory
 import org.koin.core.annotation.Module
 import org.koin.core.annotation.Single
 import pl.nepapp.data.todo.local.TodoDao
 
 @Module
-@ComponentScan("pl.nepapp.infrastructure.database")
-class DatabaseModule {
+@ComponentScan("pl.nepapp.data.todo.local.impl")
+class TodoDatabaseModule {
 
     @Single
-    fun provideDatabase(context: Context): NepAppDatabase {
+    fun provideDatabase(context: Context): TodoDatabase {
         return Room.databaseBuilder(
             context = context,
-            NepAppDatabase::class.java, "nepapp-database"
+            TodoDatabase::class.java, "todo-database"
         ).build()
     }
 
-    @Factory
-    fun provideTodoDao(database: NepAppDatabase): TodoDao {
+    @Single
+    fun provideTodoDao(database: TodoDatabase): TodoDao {
         return database.todoDao()
     }
 }

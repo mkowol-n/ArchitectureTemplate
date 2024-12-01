@@ -67,7 +67,6 @@ dependencies {
 
     implementation(project(":core:common:impl"))
     implementation(project(":core:config:http:impl"))
-    implementation(project(":infrastructure:database"))
     implementation(project(":infrastructure:shared"))
     implementation(project(":core:settings:local-impl"))
     implementation(project(":core:settings"))
@@ -77,6 +76,7 @@ dependencies {
     implementation(project(":data:authorization:impl"))
     implementation(project(":data:authorization:remote:impl"))
     implementation(project(":data:todo:impl"))
+    implementation(project(":data:todo:local:impl"))
     implementation(project(":features:main"))
 
     implementation(project(":usecases:combined:impl"))
