@@ -1,6 +1,5 @@
 plugins {
-    alias(libs.plugins.android.library)
-    id("base-android-conventions")
+    id("base-local-source-impl-conventions")
 }
 
 android {

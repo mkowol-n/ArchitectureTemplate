@@ -14,6 +14,5 @@ dependencies {
     implementation(project(":core:common"))
     implementation(libs.orbit)
     implementation(libs.orbit.compose)
-    implementation(libs.immutableList)
     implementation(libs.koin.compose)
 }

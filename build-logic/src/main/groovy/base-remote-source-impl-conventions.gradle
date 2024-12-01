@@ -1,0 +1,14 @@
+plugins {
+    id 'com.android.library'
+    id 'base-android-conventions'
+}
+
+dependencies {
+    ksp(libs.koin.compiler)
+    implementation(libs.koin.annotations)
+
+    implementation(project(":core:settings"))
+    implementation(project(":core:common"))
+    implementation(project(":core:config:http"))
+    implementation(libs.retrofit)
+}

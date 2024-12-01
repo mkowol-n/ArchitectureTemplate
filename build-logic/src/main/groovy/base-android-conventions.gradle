@@ -38,4 +38,5 @@ dependencies {
 
     ksp libs.koin.compiler
     implementation(libs.koin.annotations)
+    implementation(libs.immutableList)
 }

@@ -1,3 +1,3 @@
 plugins {
-    id("base-remote-source-conventions")
+    id("base-remote-source-api-conventions")
 }

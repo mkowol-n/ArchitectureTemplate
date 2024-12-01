@@ -11,6 +11,5 @@ android {
 dependencies {
     implementation(libs.androidx.ui)
     implementation(libs.androidx.material3)
-    implementation(libs.immutableList)
     implementation(project(":core:state-management"))
 }
