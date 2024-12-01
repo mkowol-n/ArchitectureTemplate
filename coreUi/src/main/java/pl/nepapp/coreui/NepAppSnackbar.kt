@@ -18,12 +18,12 @@ suspend fun SnackbarHostState.showFetchFailed() {
 @Composable
 fun NepAppSnackBarHost(snackbarHostState: SnackbarHostState) {
     SnackbarHost(
-        hostState = snackbarHostState
+        hostState = snackbarHostState,
     ) {
         Snackbar(
             contentColor = Color.White,
             snackbarData = it,
-            containerColor = Color.Red
+            containerColor = Color.Red,
         )
     }
 }

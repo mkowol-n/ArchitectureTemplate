@@ -4,10 +4,7 @@ import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.filter
-import kotlinx.coroutines.flow.flatMapLatest
-import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import pl.nepapp.data.todo.TodoRepository
 import pl.nepapp.data.todo.TodoResponse
@@ -31,7 +28,7 @@ class TodoRepositoryImpl(private val todoDao: TodoDao) : TodoRepository {
             )
         )
         counter ++
-        if(counter == 4) {
+        if(counter >= 4) {
             return todoDao.getAll().map { entity ->
                 TodoResponse(
                     id = entity.id,
