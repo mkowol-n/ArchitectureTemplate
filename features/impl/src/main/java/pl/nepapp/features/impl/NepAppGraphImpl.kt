@@ -6,6 +6,8 @@ import org.koin.compose.getKoin
 import org.koin.compose.scope.KoinScope
 import org.koin.compose.scope.rememberKoinScope
 import org.koin.core.qualifier.StringQualifier
+import org.koin.core.qualifier.qualifier
+import pl.nepapp.core.common.mainScope
 import pl.nepapp.core.navigation.impl.BaseNavHost
 import pl.nepapp.core.navigation.impl.registerWithNewSlideAnimation
 import pl.nepapp.features.NepAppGraph
@@ -20,12 +22,12 @@ import pl.nepapp.features.tododetails.impl.TodoDetailsScreen
 import pl.nepapp.features.todolist.TodoListDirection
 import pl.nepapp.features.todolist.impl.TodoListContent
 
-class NepAppGraphImpl: NepAppGraph {
+class NepAppGraphImpl : NepAppGraph {
 
     @Composable
     override fun MainRoute(navHostController: NavHostController, initialScreenIsLogin: Boolean) {
         BaseNavHost(
-            startDestination = if(initialScreenIsLogin) LoginDirection else DashboardDirection ,
+            startDestination = if (initialScreenIsLogin) LoginDirection else DashboardDirection,
             navController = navHostController
         ) {
             registerWithNewSlideAnimation<LoginDirection> {
@@ -39,20 +41,19 @@ class NepAppGraphImpl: NepAppGraph {
 
     @Composable
     override fun TodoRoute() {
-       // KoinScope<MainScopes>(scopeID = "MainScope") {
-            BaseNavHost(
-                startDestination = TodoListDirection,
+        BaseNavHost(
+            startDestination = TodoListDirection,
+        ) {
+            registerWithNewSlideAnimation<TodoListDirection> {
+                TodoListContent()
+            }
+            registerWithNewSlideAnimation<TodoDetailsDirection>(
+                typeMap = TodoDetailsDirection.typeMap
             ) {
-                registerWithNewSlideAnimation<TodoListDirection> {
-                    TodoListContent()
-                }
-                registerWithNewSlideAnimation<TodoDetailsDirection>(
-                    typeMap = TodoDetailsDirection.typeMap
-                ) {
-                    TodoDetailsScreen()
-                }
-           }
-      //  }
+                TodoDetailsScreen()
+            }
+        }
+
     }
 
     @Composable

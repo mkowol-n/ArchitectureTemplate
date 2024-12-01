@@ -9,6 +9,7 @@ import org.koin.core.annotation.Scope
 import org.koin.core.annotation.ScopeId
 import org.koin.core.annotation.Scoped
 import org.koin.core.annotation.Single
+import pl.nepapp.core.common.FinalScope
 import pl.nepapp.core.common.SomeOtherScope
 import pl.nepapp.core.common.mainScope
 import pl.nepapp.data.todo.local.TodoDao
@@ -19,7 +20,7 @@ class DatabaseModule {
 
     @Factory
     @Scoped
-    @Scope(name = mainScope)
+    @Scope(FinalScope::class)
     fun provideDatabase(context: Context): NepAppDatabase {
         return Room.databaseBuilder(
             context = context,
@@ -39,7 +40,7 @@ class DatabaseModule {
 
     @Factory
     @Scoped
-    @Scope(name = mainScope)
+    @Scope(FinalScope::class)
     fun provideTodoDao(database: NepAppDatabase): TodoDao {
         return database.todoDao()
     }

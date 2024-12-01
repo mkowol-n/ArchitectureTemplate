@@ -10,6 +10,7 @@ import org.koin.core.annotation.ScopeId
 import org.koin.core.annotation.Scoped
 import org.koin.core.component.createScope
 import pl.nepapp.core.common.SomeOtherScope
+import pl.nepapp.core.common.mainScope
 import pl.nepapp.core.navigation.NavigationSavedStateHandle
 import pl.nepapp.core.navigation.getDirection
 import pl.nepapp.core.statemanagement.BaseScopeViewModel
@@ -18,8 +19,11 @@ import pl.nepapp.data.todo.TodoRepository
 import pl.nepapp.features.tododetails.TodoDetailsDirection
 
 @KoinViewModel
+@Scoped
+@Scope(SomeOtherScope::class)
 class TodoDetailsViewModel(
-    savedStateHandle: SavedStateHandle
+    savedStateHandle: SavedStateHandle,
+    private val todoRepository: TodoRepository
 ) : BaseViewModel<TodoDetailsViewModel.TodoDetailsState, Unit>(
     TodoDetailsState(
         directionModel = TodoDetailsDirection.from(savedStateHandle)
@@ -30,7 +34,7 @@ class TodoDetailsViewModel(
     )
 
     init {
-     //   Log.d("pizda2", todoRepository.daoHasCode)
+        Log.d("pizda2", todoRepository.hashCode().toString())
     }
 
     init {

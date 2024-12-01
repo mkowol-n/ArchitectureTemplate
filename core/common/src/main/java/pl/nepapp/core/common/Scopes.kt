@@ -7,5 +7,7 @@ import kotlin.reflect.KClass
 
 const val mainScope = "NepAppMainScope"
 
+class FinalScope
+
 @Scope
 class SomeOtherScope

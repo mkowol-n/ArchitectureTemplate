@@ -10,6 +10,7 @@ import org.koin.core.module.dsl.singleOf
 import org.koin.core.qualifier.named
 import org.koin.dsl.bind
 import org.koin.dsl.module
+import pl.nepapp.core.common.FinalScope
 import pl.nepapp.core.common.SomeOtherScope
 import pl.nepapp.core.common.mainScope
 import pl.nepapp.data.todo.TestClass
@@ -19,7 +20,7 @@ import pl.nepapp.data.todo.local.TodoDao
 
 val todoDataModule = module {
 
-    scope(named(mainScope)) {
+    scope< FinalScope> {
         scopedOf(::TodoRepositoryImpl) bind TodoRepository::class
     }
 
